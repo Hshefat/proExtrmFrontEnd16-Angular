@@ -1,0 +1,24 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from './components/features-modules/home/home.component';
+import { OrderListComponent } from './components/features-modules/order-list/order-list.component';
+import { StyleListComponent } from './components/features-modules/style-list/style-list.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
+import { DashboardBoardComponent } from './components/features-modules/dashboard-board/dashboard-board.component';
+import { StatisticsComponent } from './components/features-modules/statistics/statistics.component';
+
+const routes: Routes = [
+  
+  { path: '', component: DashboardBoardComponent },
+  { path: 'home', component: HomeComponent },
+  { path: 'style-list', component: StyleListComponent }, 
+  { path: 'order-list', component: OrderListComponent },  
+  { path: 'statistics', component: StatisticsComponent },  
+  { path: '**', component: NotfoundComponent },
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
