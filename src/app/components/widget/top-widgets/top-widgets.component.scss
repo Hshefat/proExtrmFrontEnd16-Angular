@@ -1,8 +1,11 @@
 .widget-container {
+    text-align: center;
     display: flex;
+    margin-left: 10px;
+    margin-right: 10px;
     align-items: space-between;
     .widget {
-      width: 325px;
+      width: 350px;
       height: 175px;
       background-color: #fff;
       color: #fff;

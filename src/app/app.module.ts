@@ -20,7 +20,17 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DemoTemplateComponent } from './components/features-modules/demo-template/demo-template.component';
 import { WidgetBoardComponent } from './components/widget/widget-board/widget-board.component';
 import { StatisticsComponent } from './components/features-modules/statistics/statistics.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {HttpClientModule} from '@angular/common/http';
+
+
+import { MatTableModule} from '@angular/material/table';
+import { MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule} from '@angular/material/sort';
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule} from '@angular/material/input';
+ 
 
 @NgModule({
   declarations: [
@@ -40,14 +50,32 @@ import { StatisticsComponent } from './components/features-modules/statistics/st
     NotfoundComponent,
     DemoTemplateComponent,
     WidgetBoardComponent,
-    StatisticsComponent
+    StatisticsComponent,
+
+
+
+
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-     
-    ChartModule
+    ChartModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+
+    BrowserModule,
+    MatTableModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
