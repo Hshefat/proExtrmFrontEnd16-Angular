@@ -9,38 +9,84 @@
       <div class="main">
        
         <!-- Data table  -->
-        <div>
+        <div  >
           <mat-form-field  >
             <mat-label>Filter Table</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
           </mat-form-field>  
           
-          <div class="mat-elevation-z8">
+          <div class="mat-elevation-z8" style="text-align: center; width: 100%;">
             <table mat-table [dataSource]="dataSource" matSort>
           
-              <!-- ID Column -->
-              <ng-container matColumnDef="id">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
-              </ng-container>
+           
           
               <!-- Progress Column -->
-              <ng-container matColumnDef="userId">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> userId </th>
-                <td mat-cell *matCellDef="let row"> {{row.userId}} </td>
+              <ng-container matColumnDef="recId">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> recId </th>
+                <td mat-cell *matCellDef="let row"> {{row.recId}} </td>
               </ng-container>
           
-              <!-- Name Column -->
-              <ng-container matColumnDef="title">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
-                <td mat-cell *matCellDef="let row"> {{row.title}} </td>
-              </ng-container>
+           
           
-              <!-- Fruit Column -->
-              <ng-container matColumnDef="body">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> body </th>
-                <td mat-cell *matCellDef="let row"> {{row.body}} </td>
+              <!-- inventoryCode Column -->
+              <ng-container matColumnDef="inventoryCode">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> inventoryCode </th>
+                <td mat-cell *matCellDef="let row"> {{row.inventoryCode}} </td>
               </ng-container>
+
+                <!-- inventoryName Column -->
+                <ng-container matColumnDef="inventoryName">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> inventoryName </th>
+                  <td mat-cell *matCellDef="let row"> {{row.inventoryName}} </td>
+                </ng-container>
+
+            
+
+                <!-- seasonCode Column -->
+                <ng-container matColumnDef="seasonCode">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> seasonCode </th>
+                  <td mat-cell *matCellDef="let row"> {{row.seasonCode}} </td>
+                </ng-container>
+
+            
+
+                <!-- accessCode Column -->
+                <ng-container matColumnDef="accessCode">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> accessCode </th>
+                  <td mat-cell *matCellDef="let row"> {{row?.woOrderDto?.accessCode}} </td>
+                </ng-container>
+
+                  <!-- inventoryId Column -->
+              <ng-container matColumnDef="inventoryId">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> inventoryId </th>
+                <td mat-cell *matCellDef="let row"> {{row?.woOrderDto?.inventoryId}} </td>
+              </ng-container>
+
+                <!-- quantity Column -->
+                <ng-container matColumnDef="quantity">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> quantity </th>
+                  <td mat-cell *matCellDef="let row"> {{row?.woOrderDto?.quantity}} </td>
+                </ng-container>
+
+                <!-- unitPrice Column -->
+                <ng-container matColumnDef="unitPrice">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> unitPrice </th>
+                  <td mat-cell *matCellDef="let row"> {{row?.woOrderDto?.unitPrice}} </td>
+                </ng-container>
+
+                <!-- workOrderGroupCode Column -->
+                <ng-container matColumnDef="workOrderGroupCode">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> workOrderGroupCode </th>
+                  <td mat-cell *matCellDef="let row"> {{row?.woOrderDto?.workOrderGroupCode}} </td>
+                </ng-container>
+
+                <!-- workOrderNo Column -->
+                <ng-container matColumnDef="workOrderNo">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> workOrderNo </th>
+                  <td mat-cell *matCellDef="let row"> {{row?.woOrderDto?.workOrderNo}} </td>
+                </ng-container>
+
+
           
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>

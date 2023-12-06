@@ -2,8 +2,8 @@ import { Component, ViewChild } from '@angular/core';
 import { StyleService } from 'src/app/services/style.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { StyleList } from 'src/app/model/style-list.model';
+import { MatTableDataSource } from '@angular/material/table'; 
+import { IStyle } from 'src/app/model/style.model';
 
 
 @Component({
@@ -12,8 +12,17 @@ import { StyleList } from 'src/app/model/style-list.model';
   styleUrls: ['./style-list.component.scss']
 })
 export class StyleListComponent {
-  displayedColumns: string[] = ['id', 'userId', 'title', 'body'];
-  dataSource!: MatTableDataSource<StyleList>;
+  displayedColumns: string[] = [ 'recId',   'inventoryCode', 'inventoryName'
+  
+  , 'seasonCode' 
+  , 'accessCode'
+  , 'inventoryId'
+  , 'quantity'
+  , 'unitPrice'
+  , 'workOrderGroupCode'
+  , 'workOrderNo'
+];
+  dataSource!: MatTableDataSource<IStyle>;
   styleList: any;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

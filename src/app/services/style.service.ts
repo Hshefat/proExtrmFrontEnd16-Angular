@@ -6,12 +6,13 @@ import { Injectable } from '@angular/core';
 })
 export class StyleService {
 
-  private ApiUrl = 'https://jsonplaceholder.typicode.com/posts'
+  private ApiUrl = '/ImItem/GetItemsWithWorkOrders'; 
+
   constructor(private http: HttpClient) { }
 
 
   getData(){
-    return this.http.get(this.ApiUrl);
+    return this.http.get(this.ApiUrl) ;
   }
 
 
