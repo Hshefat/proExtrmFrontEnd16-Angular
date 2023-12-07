@@ -6,13 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class StyleService {
 
-  private ApiUrl = '/ImItem/GetItemsWithWorkOrders'; 
-
+  private ApiUrl = 'http://localhost:62282/ImItem/GetItemsWithWorkOrders'
   constructor(private http: HttpClient) { }
 
 
   getData(){
-    return this.http.get(this.ApiUrl) ;
+    return this.http.get(this.ApiUrl);
   }
 
 

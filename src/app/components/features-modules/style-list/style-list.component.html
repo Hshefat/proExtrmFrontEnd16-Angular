@@ -7,7 +7,12 @@
         <app-side-bar></app-side-bar>
       </div>
       <div class="main">
-       
+       <!-- for spinner  -->
+       <div class="spinnerconent" *ngIf="isloaded">
+        <div class="spinnerclass">
+          <mat-progress-spinner color="accent" value="50" mode="indeterminate"></mat-progress-spinner>
+        </div>
+      </div>
         <!-- Data table  -->
         <div  >
           <mat-form-field  >
@@ -101,6 +106,15 @@
           </div>
         </div>
         <!-- end data table  -->
+        
+
+
+
+        
+
+
+
+
       </div>
     </div>
   </div>
