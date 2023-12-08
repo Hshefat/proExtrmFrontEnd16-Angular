@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardBoardComponent } from './components/features-modules/dashboard-board/dashboard-board.component';
 import { HomeComponent } from './components/features-modules/home/home.component';
-import { StyleListComponent } from './components/features-modules/style-list/style-list.component';
-import { OrderListComponent } from './components/features-modules/order-list/order-list.component';
+import { StyleListComponent } from './components/features-modules/style/style-list/style-list.component';
+import { OrderListComponent } from './components/features-modules/order/order-list/order-list.component';
 import { HeaderComponent } from './components/layouts/header/header.component';
 import { FooterComponent } from './components/layouts/footer/footer.component';
 import { SideBarComponent } from './components/layouts/side-bar/side-bar.component';
@@ -32,6 +32,8 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule} from '@angular/material/input'; 
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { StyleEditViewComponent } from './components/features-modules/style/style-edit-view/style-edit-view.component';
+import { OrderEditViewComponent } from './components/features-modules/order/order-edit-view/order-edit-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +53,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     DemoTemplateComponent,
     WidgetBoardComponent,
     StatisticsComponent,
+    StyleEditViewComponent,
+    OrderEditViewComponent,
 
 
 
