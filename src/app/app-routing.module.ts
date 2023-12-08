@@ -14,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'style-list', component: StyleListComponent }, 
   { path: 'style-view/:id', component: StyleEditViewComponent }, 
+  { path: 'style-view', component: StyleEditViewComponent }, 
   { path: 'order-list', component: OrderListComponent },  
   { path: 'statistics', component: StatisticsComponent },  
   { path: '**', component: NotfoundComponent },
