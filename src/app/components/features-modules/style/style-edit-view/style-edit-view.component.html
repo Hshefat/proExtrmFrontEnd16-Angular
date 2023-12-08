@@ -1,14 +1,31 @@
 <div class="container-fluid">
     <div class="header">
-      <app-header></app-header>
+        <app-header></app-header>
     </div>
     <div class="main-container">
-      <div class="side-nav">
-        <app-side-bar></app-side-bar>
-      </div>
-      <div class="main">
-       <h1>View data from card list</h1>
-       
-      </div>
+        <div class="side-nav">
+            <app-side-bar></app-side-bar>
+        </div>
+        <div class="main">
+            <!-- for spinner  -->
+            <div class="spinnerconent" *ngIf="isloaded">
+                <div class="spinnerclass">
+                  <mat-progress-spinner color="accent" value="50" mode="indeterminate">
+                    
+                  </mat-progress-spinner>
+                </div>
+              </div>
+            <!-- for spinner END  -->
+            <h1>View data from card list</h1>
+            <div>
+                {{styleObj.inventoryName}}
+
+            </div>
+            <div>
+                {{styleObj.inventoryCode}}
+
+            </div>
+
+        </div>
     </div>
-  </div>
+</div>

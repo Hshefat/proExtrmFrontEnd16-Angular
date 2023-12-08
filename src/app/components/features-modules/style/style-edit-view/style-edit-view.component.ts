@@ -7,50 +7,68 @@ import { StyleService } from 'src/app/services/style.service';
   templateUrl: './style-edit-view.component.html',
   styleUrls: ['./style-edit-view.component.scss']
 })
-export class StyleEditViewComponent implements OnInit{
+export class StyleEditViewComponent implements OnInit {
 
- 
+
+  objId: any;
   itemId: any;
   conceptUuid: any;
   isloaded = false;
   styleList: any;
+  styleObj: any;
 
 
 
   constructor(private route: ActivatedRoute,
-    private services: StyleService,
-     ){}
+    private services: StyleService,) { }
 
   ngOnInit(): void {
-    this.conceptUuid = this.route.snapshot.queryParams['id'];
-    console.log(this.route,"concept Uuid");
-    console.log(this.conceptUuid,"concept Uuid");
-   
+    // this.route.params.subscribe(res => {
+    //   this.itemId = res;
+    //   console.log("OBJ", this.itemId.id);
+    // });
 
-    this.route.params.subscribe(res => {
-      this.itemId = res;
-     console.log("OBJ",this.itemId.id);
+    this.getInventoryCode();
+    this.getByIdEditView();
 
-  });
-
-
-
-  this.getData();
+    this.callAllMethods();
+    this.getData();
 
   }
 
+  getInventoryCode() {
+    this.route.paramMap.subscribe({
+      next: (param) => {
+        this.objId = param.get('id');
+        console.log('Cons Id', this.objId)
+      }
+    })
+  }
 
-  getData(){
-    this.isloaded = true;
-    this.services.getData().subscribe(res=>{
-      console.log(res); 
+
+  callAllMethods() {
+    setTimeout(() => {
+    }, 2000);
+  }
+
+  
+  getData() {
+    this.services.getData().subscribe(res => {
+      console.log(res);
       this.styleList = res;
-
-      this.isloaded = false;
-
-    }, error => {
-     
-  }) ;
+    } );
   }
+
+  getByIdEditView() {
+    this.services.getByIdEditView(this.objId).subscribe(res => {
+      this.styleObj = res;
+      console.log('Cons Id',res)
+    })
+  };
+
 
 }
+
+
+
+

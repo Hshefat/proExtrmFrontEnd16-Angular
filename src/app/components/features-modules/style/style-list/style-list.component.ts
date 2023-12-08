@@ -53,7 +53,6 @@ export class StyleListComponent implements OnInit {
   getData() {
     this.isloaded = true;
     this.services.getData().subscribe(res => {
-
       console.log(res);
       this.styleList = res;
       this.dataSource = new MatTableDataSource(this.styleList);

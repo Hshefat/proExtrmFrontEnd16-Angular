@@ -9,17 +9,17 @@ export class DashboardBoardComponent implements OnInit {
   isloaded = true;
 
 
-   ngOnInit(): void {
+  ngOnInit(): void {
 
     this.snMethod();
   }
-   
 
-   snMethod(){
-    setTimeout(()=>{     
+
+  snMethod() {
+    setTimeout(() => {
       this.isloaded = false;
-  }, 2000);
-   }
+    }, 2000);
+  }
 
 
 }
