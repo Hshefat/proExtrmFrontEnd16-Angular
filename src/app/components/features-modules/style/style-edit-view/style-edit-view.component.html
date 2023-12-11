@@ -15,12 +15,42 @@
             </div>
             <!-- for spinner END  -->
 
- 
-            
+
+            <div class="flex-auto m-7 body-color">
+                <mat-card>
+                    <div>
+                        <!-- Form Start -->
+                        <form class="form" [formGroup]="frmGroup" name="frmGroup" class="p-5">
+
+
+                            <table class="mat-elevation-z8">
+                                <thead>
+                                    <tr>
+                                        <th class="top-header">Designation</th>
+                                       
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+                                        <td>
+                                            <mat-form-field class="w-full">
+                                                <input formControlName="inventoryCode" appearance="outline" autocomplete="off" matInput required>
+                                            </mat-form-field>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </form>
+                    </div>
+                </mat-card>
 
 
 
 
+
+            </div>
         </div>
     </div>
-</div>

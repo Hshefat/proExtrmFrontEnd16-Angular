@@ -34,6 +34,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { StyleEditViewComponent } from './components/features-modules/style/style-edit-view/style-edit-view.component';
 import { OrderEditViewComponent } from './components/features-modules/order/order-edit-view/order-edit-view.component';
+import { MatCardModule } from '@angular/material/card';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,8 +82,10 @@ import { OrderEditViewComponent } from './components/features-modules/order/orde
     HttpClientModule,
     BrowserAnimationsModule,
     MatSnackBarModule,
-    MatProgressSpinnerModule
-
+    MatProgressSpinnerModule,
+    MatCardModule,
+    FormsModule, ReactiveFormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

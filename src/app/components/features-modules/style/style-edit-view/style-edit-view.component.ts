@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { IStyle } from 'src/app/model/style.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-
+import { FormBuilder, FormGroup } from '@angular/forms'; 
 
 @Component({
   selector: 'app-style-edit-view',
@@ -23,11 +23,13 @@ export class StyleEditViewComponent implements OnInit {
   isloaded = false;
   styleList: any;
   styleObj: any;
-
+  frmGroup!: FormGroup;
 
 
   constructor(private route: ActivatedRoute,
-    private services: StyleService,) { }
+    private services: StyleService,
+    private formBuilder: FormBuilder,
+  ) { }
 
   ngOnInit(): void {
     // this.route.params.subscribe(res => {
@@ -37,8 +39,9 @@ export class StyleEditViewComponent implements OnInit {
 
     this.getInventoryCode();
     this.getByIdEditView();
+    this.formInitialize();
 
-   
+
     // this.getData();
     // this.snMethod();
 
@@ -54,7 +57,15 @@ export class StyleEditViewComponent implements OnInit {
   }
 
 
-  
+
+  formInitialize() {
+    this.frmGroup = this.formBuilder.group({
+      inventoryCode: [''], 
+    })
+  }
+
+
+
   snMethod() {
     this.isloaded = true;
     setTimeout(() => {
@@ -62,24 +73,32 @@ export class StyleEditViewComponent implements OnInit {
     }, 2000);
   }
 
-  
+
   getData() {
     this.isloaded = true;
     this.services.getData().subscribe(res => {
       console.log(res);
       this.styleList = res;
       this.isloaded = false;
-    } );
+    });
   }
 
-  getByIdEditView() { 
+  getByIdEditView() {
     this.isloaded = true;
     this.services.getByIdEditView(this.objId).subscribe(res => {
       this.styleObj = res;
-      console.log('styleObj',res)
+      console.log('styleObj', res)
+      this.setValueFromMtbfData(res)
       this.isloaded = false;
     })
   };
+
+  setValueFromMtbfData(respone: any) {
+    this.frmGroup.patchValue({
+      inventoryCode: respone.inventoryCode,
+       
+    });
+}
 
 
 }
