@@ -53,10 +53,11 @@ export class StyleEditViewComponent implements OnInit {
   }
 
   getInventoryCode() {
-    this.route.paramMap.subscribe({
+    let id = this.route.paramMap.subscribe({
       next: (param) => {
         this.objId = param.get('id');
-        console.log('Cons Id', this.objId)
+        console.log('Cons Id', this.objId);
+               
       }
     })
   }
