@@ -21,9 +21,14 @@ export class StyleEditViewComponent implements OnInit {
   itemId: any;
   conceptUuid: any;
   isloaded = false;
-  styleList: any;
   styleObj: any;
   frmGroup!: FormGroup;
+
+  dataSource!: MatTableDataSource<IStyle>;
+  @ViewChild(MatSort) sort!: MatSort;
+  styleList: IStyle[] = [];
+
+
 
 
   constructor(private route: ActivatedRoute,
@@ -42,7 +47,7 @@ export class StyleEditViewComponent implements OnInit {
     this.formInitialize();
 
 
-    // this.getData();
+    this.getData();
     // this.snMethod();
 
   }
@@ -79,9 +84,17 @@ export class StyleEditViewComponent implements OnInit {
     this.services.getData().subscribe(res => {
       console.log(res);
       this.styleList = res;
+      this.dataSource = new MatTableDataSource(this.styleList);
+      this.dataSource.sort = this.sort;
+
+      this.isloaded = false;
+
+    }, (error: any) => {
+      console.error(error);
       this.isloaded = false;
     });
   }
+
 
   getByIdEditView() {
     this.isloaded = true;
@@ -99,6 +112,27 @@ export class StyleEditViewComponent implements OnInit {
        
     });
 }
+
+
+applyFilter(event: Event) {
+  const filterValue = (event.target as HTMLInputElement).value;
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+
+  if (this.dataSource.paginator) {
+    this.dataSource.paginator.firstPage();
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 }

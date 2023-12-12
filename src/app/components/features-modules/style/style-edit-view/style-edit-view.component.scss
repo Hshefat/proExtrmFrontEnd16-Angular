@@ -12,12 +12,14 @@
         min-width: 100px;
       }
     }
-    .main {
-      padding: 30px;
-    }
+   
   }
 
-  
+  .main {
+    padding: 30px;
+    width: 100%;
+  }
+
 .spinnerconent{
   width: 100%;
   left: 0;
@@ -39,3 +41,11 @@
   bottom: 0;
 }
 
+/* Reduce the width of mat-tab-label */
+.mat-tab-body-wrapper{
+  flex-grow: 0;
+}
+
+.tab-group mat-tab-body {
+  flex-grow: 0;
+}
