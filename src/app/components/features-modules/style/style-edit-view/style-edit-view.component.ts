@@ -73,7 +73,7 @@ formInitialize() {
     gender: [''], 
 
 
-    season: [''], 
+    seasonCode: [''], 
     brand: [''], 
     category: [''], 
     categoryId: [''], 
@@ -83,7 +83,7 @@ formInitialize() {
     customerStyleNo: [''], 
     styleDeal: [''], 
     factory: [''], 
-    smv: [''], 
+    udSmv: [''], 
     print: [''], 
     emprodery: [''], 
     oldStyleCode: [''], 

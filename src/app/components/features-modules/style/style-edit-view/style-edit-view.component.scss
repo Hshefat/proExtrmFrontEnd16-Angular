@@ -1,26 +1,29 @@
 .main-container {
-    display: flex;
-    .side-nav {
-      width: 200px;
-      min-width: 230px;
-      min-height: calc(100vh - 70px);
-      background-color: #113c60;
-      color: #fff;
-      box-shadow: 5px 5px 5px #939393;
-      @media only screen and (max-width: 1300px) {
-        width: 100px;
-        min-width: 100px;
-      }
+  display: flex;
+
+  .side-nav {
+    width: 200px;
+    min-width: 230px;
+    min-height: calc(100vh - 70px);
+    background-color: #113c60;
+    color: #fff;
+    box-shadow: 5px 5px 5px #939393;
+
+    @media only screen and (max-width: 1300px) {
+      width: 100px;
+      min-width: 100px;
     }
-   
   }
 
-  .main {
-    padding: 30px;
-    width: 100%;
-  }
+}
 
-.spinnerconent{
+.main {
+  padding: 30px;
+  font-family: Arial; 
+  font-size: 10px;
+}
+
+.spinnerconent {
   width: 100%;
   left: 0;
   right: 0;
@@ -28,11 +31,11 @@
   bottom: 0;
   background-color: rgba(255, 255, 255, 0.7);
   z-index: 9999;
-  display:flex ;
+  display: flex;
   text-align: center;
 }
 
-.spinnerclass{
+.spinnerclass {
   position: fixed;
   width: 100%;
   left: 50%;
@@ -42,47 +45,44 @@
 }
 
 /* Reduce the width of mat-tab-label */
-.mat-tab-body-wrapper{
+.mat-tab-body-wrapper {
   flex-grow: 0;
 }
 
 .tab-group mat-tab-body {
   flex-grow: 0;
 }
+
 .toast-custom {
 
   top: 80px;
-  
+
   right: 0px;
-  
-  }
 
-  .image-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    grid-template-rows: repeat(2, 1fr); /* Two rows */
-    gap: 10px; /* Gap between images */
-  }
-  
-  .image-container img {
-    width: 95%; /* Adjust image width */
-    height: 95%; /* Adjust image height */
-    object-fit: cover; /* Maintain aspect ratio and cover container */
-    border: 2px solid #333;
-  }
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #333;
+  margin: 10px;
+  padding: 20px;
+}
+
+ 
+
+.mdbFormControl {
+  margin-bottom: 5px;
+}
+ 
+ 
 
 
-  .container {
-    display: flex; /* Use flexbox */
-    border: none;
-  }
-  
-  .box1, .box2 {
-    flex: 1; /* Both boxes will take up equal space */
-    border: 1px solid #333; /* Add borders to the boxes */
-    padding: 10px; /* Add padding for content */
-  }
 
-  
-
-  

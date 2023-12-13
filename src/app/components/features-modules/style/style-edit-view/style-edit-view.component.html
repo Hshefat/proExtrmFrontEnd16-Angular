@@ -8,7 +8,7 @@
         </div>
 
 
-        <div class="main">
+        <div class="main ">
             <!-- for spinner  -->
             <div class="spinnerconent" *ngIf="isloaded">
                 <div class="spinnerclass">
@@ -32,7 +32,7 @@
                         height: 50px; line-height: 50px;">&nbsp;&nbsp;{{styleObj.inventoryName}}</P>
                     </div>
                 </form>
-            </div>
+            </div> 
             <!-- ===================== -->
 
             <div>
@@ -45,192 +45,299 @@
                             </span>
                         </ng-template>
 
-                        <div class="d-flex  p-2" style="width: 100%;">
-                            <div class="p-2 flex-fill" style="width: 50%;">
-                                <!-- 1st card  -->
-                                <div class="flex-fill  ">
-                                    <mat-card>
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
-                                </div>
-                                <br>
+                        <table style="width: 100%;">
+                            <tr>
+                                <!-- data  -->
+                                <td style="width: 60%;">
+                                    <div class="p-2 flex-fill">
+                                        <!-- 1st card  -->
+                                        <div class="flex-fill  ">
+                                            <mat-card>
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" formControlName="inventoryName"
+                                                                class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                        </mdb-form-control>
 
-                                <!-- 2 card  -->
-                                <div class="d-flex justify-content-between">
-                                    <mat-card style="width: 50%; margin-right:  5px;">
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                                Style</label>
+                                                        </mdb-form-control>
+                                                    </div>
+                                                </form>
+                                            </mat-card>
+                                        </div>
+                                        <br>
 
-                                    <mat-card style="width: 50%; margin-left:  5px;">
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
-                                </div>
+                                        <!-- 2 card  -->
+                                        <div class="d-flex justify-content-between">
+                                            <mat-card style="width: 50%; margin-right:  5px;">
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" formControlName="accessCode"
+                                                                class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">Access
+                                                                Code</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Customer
+                                                            </label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Department
+                                                            </label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Gender</label>
+                                                        </mdb-form-control>
+                                                    </div>
+                                                </form>
+                                            </mat-card>
 
-                                <br>
-                                <!-- 3 card  -->
-                                <div class="d-flex justify-content-between">
-                                    <mat-card style="width: 50%; margin-right:  5px;">
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
+                                            <mat-card style="width: 50%; margin-left:  5px;">
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" formControlName="seasonCode"
+                                                                class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">Season</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Brand</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Category</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Pro. Certification</label>
+                                                        </mdb-form-control>
+                                                    </div>
+                                                </form>
+                                            </mat-card>
+                                        </div>
+                                        <br>
+                                      
+                                        <!-- 3 card  -->
+                                        <div class="d-flex justify-content-between">
+                                            <mat-card style="width: 50%; margin-right:  5px;">
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Customer Style No</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Style Deal</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Factory</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                SMV</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <div class="d-flex justify-content-between">
+                                                            <div class="form-check" style="font-size: 15px;">
+                                                                <input mdbCheckbox class="form-check-input"
+                                                                    type="checkbox" value="" id="flexCheckChecked"
+                                                                    [checked]="true" />
+                                                                <label class="form-check-label" for="flexCheckChecked">
+                                                                    Print
+                                                                </label>
+                                                            </div>
+                                                            <div class="form-check" style="font-size: 15px;">
+                                                                <input mdbCheckbox class="form-check-input"
+                                                                    type="checkbox" value="" id="flexCheckChecked"
+                                                                    [checked]="true" />
+                                                                <label class="form-check-label" for="flexCheckChecked">
+                                                                    Embrodery
+                                                                </label>
+                                                            </div>
+                                                        </div>
 
-                                    <mat-card style="width: 50%; margin-left:  5px;">
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
-                                </div>
-                                <br>
-                                 <!-- 4th card  -->
-                                 <div class="flex-fill  ">
-                                    <mat-card>
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
-                                </div>
-                                <br>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Old Style Code</label>
+                                                        </mdb-form-control>
+
+                                                    </div>
+                                                </form>
+                                            </mat-card>
+
+                                            <mat-card style="width: 50%; margin-left:  5px;">
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Complexity Matrix</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Route</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Size</label>
+                                                        </mdb-form-control>
+
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Learning Curv</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <div class="form-check" style="font-size: 15px;">
+                                                            <input mdbCheckbox class="form-check-input" type="checkbox"
+                                                                value="" id="flexCheckChecked" [checked]="true" />
+                                                            <label class="form-check-label" for="flexCheckChecked">
+                                                                Non Wash
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </mat-card>
+                                        </div>
+                                        <br>
+                                        <!-- 4th card  -->
+                                        <div class="flex-fill  ">
+                                            <mat-card >
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">Wash Color Name</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Style Description</label>
+                                                        </mdb-form-control>
+                                                    </div>
+                                                </form>
+                                            </mat-card>
+                                        </div>
+                                        <br>
 
 
 
-                                <!-- 5th card  -->
-                                <div class="flex-fill  ">
-                                    <mat-card>
-                                        <form class="form" [formGroup]="frmGroup">
-                                            <div class=" p-3">
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
-                                                </mdb-form-control>
-                                                <br>
-                                                <mdb-form-control>
-                                                    <input mdbInput type="text" formControlName="inventoryName"
-                                                        class="form-control" />
-                                                    <label mdbLabel class="form-label"
-                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
-                                                        Style</label>
-                                                </mdb-form-control>
-                                            </div>
-                                        </form>
-                                    </mat-card>
-                                </div>
-                                <br>
+                                        <!-- 5th card  -->
+                                        <div class="flex-fill  ">
+                                            <mat-card style="width: 50%;">
+                                                <form class="form" [formGroup]="frmGroup">
+                                                    <div class=" p-3">
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" formControlName="inventoryCode"/>
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            Buyers Contact</label>
+                                                        </mdb-form-control>
+                                                      
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Merchandiser</label>
+                                                        </mdb-form-control>
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Technician</label>
+                                                        </mdb-form-control>
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                GPQ</label>
+                                                        </mdb-form-control>
+                                                        <mdb-form-control class="mdbFormControl">
+                                                            <input mdbInput type="text" class="form-control" />
+                                                            <label mdbLabel class="form-label"
+                                                                style="font-weight: bold; font-size: 15px; ">
+                                                                Team Leader</label>
+                                                        </mdb-form-control>
+                                                    </div>
+                                                </form>
+                                            </mat-card>
+                                        </div>
+                                      <br>
+                                    </div>
+                                </td>
 
+                                <!-- image  -->
+                                <td style="width: 40%; vertical-align: top;">
+                                    <div class="image-container flex-wrap">
+                                        <img src="assets/Image/processing.png" alt="Image 1">
+                                        <img src="assets/Image/processing.png" alt="Image 2">
+                                        <img src="assets/Image/processing.png" alt="Image 3">
+                                        <img src="assets/Image/processing.png" alt="Image 3">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
 
-
-
-
-                            </div>
-                            <!-- +++++++++++++Image View Right Side  ++++++++++++++++ -->
-                            <div class="p-2   d-flex flex-wrap" style="width: 45%;">
-                                <div class="image-container flex-wrap">
-                                    <img src="assets/Image/processing.png" alt="Image 1">
-                                    <img src="assets/Image/processing.png" alt="Image 2">
-                                    <img src="assets/Image/processing.png" alt="Image 3">
-                                </div>
-                            </div>
-
-
-                        </div>
 
                     </mdb-tab>
 
