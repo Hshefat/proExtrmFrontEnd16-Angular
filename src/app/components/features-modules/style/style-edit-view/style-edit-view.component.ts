@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { IStyle } from 'src/app/model/style.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms'; 
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; 
 
 @Component({
   selector: 'app-style-edit-view',
@@ -18,11 +18,13 @@ export class StyleEditViewComponent implements OnInit {
 
 
   objId: any;
+  searchInventoryCode: any;
   itemId: any;
   conceptUuid: any;
   isloaded = false;
   styleObj: any;
   frmGroup!: FormGroup;
+  searchFrmGroup!: FormGroup;
 
   dataSource!: MatTableDataSource<IStyle>;
   @ViewChild(MatSort) sort!: MatSort;
@@ -34,6 +36,8 @@ export class StyleEditViewComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private services: StyleService,
     private formBuilder: FormBuilder,
+    private router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -45,6 +49,7 @@ export class StyleEditViewComponent implements OnInit {
     this.getInventoryCode();
     this.getByIdEditView();
     this.formInitialize();
+    this.searchFormInit();
 
 
     this.getData();
@@ -52,7 +57,37 @@ export class StyleEditViewComponent implements OnInit {
 
   }
 
-  getInventoryCode() {
+// -----------------------------------------------------------------------------------
+
+formInitialize() {
+  this.frmGroup = this.formBuilder.group({
+    inventoryCode: [''], 
+  })
+}
+  searchFormInit(): void {
+    this.searchFrmGroup = new FormGroup({
+      searchInventoryCode: new FormControl(''),
+    
+    });
+  }
+
+  searchInputValueByInventoryCode(form: FormGroup) {
+    this.searchInventoryCode = form.value.searchInventoryCode;
+    console.log('fff',form.value.searchInventoryCode);
+    this.router.navigate(['/style-view/', this.searchInventoryCode ]);
+
+    if(this.searchInventoryCode != null){
+      this.services.getByIdEditView(this.searchInventoryCode).subscribe(res => {
+        this.styleObj = res;
+        console.log('searchInventoryCode', res)
+        this.setValueFromMtbfData(res)
+        this.isloaded = false;
+      })
+    }
+  }
+
+
+   getInventoryCode() {
     let id = this.route.paramMap.subscribe({
       next: (param) => {
         this.objId = param.get('id');
@@ -63,22 +98,12 @@ export class StyleEditViewComponent implements OnInit {
   }
 
 
-
-  formInitialize() {
-    this.frmGroup = this.formBuilder.group({
-      inventoryCode: [''], 
-    })
-  }
-
-
-
   snMethod() {
     this.isloaded = true;
     setTimeout(() => {
       this.isloaded = false;
     }, 2000);
   }
-
 
   getData() {
     this.isloaded = true;
