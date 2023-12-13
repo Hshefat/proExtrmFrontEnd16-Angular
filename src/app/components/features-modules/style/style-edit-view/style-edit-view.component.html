@@ -45,52 +45,191 @@
                             </span>
                         </ng-template>
 
-                        <div class="d-flex  p-2">
-                            <div class="p-2 flex-fill">
-                                <mat-card>
-                                    <form class="form" [formGroup]="frmGroup">
-                                        <div class=" p-3">
-                                            <mdb-form-control>
-                                                <input mdbInput type="text" formControlName="inventoryName"
-                                                    class="form-control" />
-                                                <label mdbLabel class="form-label"
-                                                    style="font-weight: bold; font-size: 15px; ">Name</label>
-                                            </mdb-form-control>
-                                            <br>
-                                            <mdb-form-control  >
-                                                <input mdbInput type="text" formControlName="inventoryName"
-                                                    class="form-control" />
-                                                <label mdbLabel class="form-label"
-                                                    style="font-weight: bold; font-size: 15px; ">Proto Type Style</label>
-                                            </mdb-form-control>
-                                        </div>
-                                    </form>
-                                </mat-card>
+                        <div class="d-flex  p-2" style="width: 100%;">
+                            <div class="p-2 flex-fill" style="width: 50%;">
+                                <!-- 1st card  -->
+                                <div class="flex-fill  ">
+                                    <mat-card>
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+                                </div>
+                                <br>
+
+                                <!-- 2 card  -->
+                                <div class="d-flex justify-content-between">
+                                    <mat-card style="width: 50%; margin-right:  5px;">
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+
+                                    <mat-card style="width: 50%; margin-left:  5px;">
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+                                </div>
+
+                                <br>
+                                <!-- 3 card  -->
+                                <div class="d-flex justify-content-between">
+                                    <mat-card style="width: 50%; margin-right:  5px;">
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+
+                                    <mat-card style="width: 50%; margin-left:  5px;">
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+                                </div>
+                                <br>
+                                 <!-- 4th card  -->
+                                 <div class="flex-fill  ">
+                                    <mat-card>
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+                                </div>
+                                <br>
+
+
+
+                                <!-- 5th card  -->
+                                <div class="flex-fill  ">
+                                    <mat-card>
+                                        <form class="form" [formGroup]="frmGroup">
+                                            <div class=" p-3">
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                </mdb-form-control>
+                                                <br>
+                                                <mdb-form-control>
+                                                    <input mdbInput type="text" formControlName="inventoryName"
+                                                        class="form-control" />
+                                                    <label mdbLabel class="form-label"
+                                                        style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                        Style</label>
+                                                </mdb-form-control>
+                                            </div>
+                                        </form>
+                                    </mat-card>
+                                </div>
+                                <br>
+
+
+
+
+
                             </div>
-                            <!-- +++++++++++++++++++++++++++++ -->
-                            <div class="p-2 flex-fill">
-                                <mat-card>
-                                    <form class="form" [formGroup]="frmGroup">
-                                        <div class="w-50 p-3">
-                                            <mdb-form-control>
-                                                <input mdbInput type="text" formControlName="inventoryName"
-                                                    class="form-control" />
-                                                <label mdbLabel class="form-label"
-                                                    style="font-weight: bold; font-size: 15px; ">Name</label>
-                                            </mdb-form-control>
-                                            <br>
-                                            <mdb-form-control  >
-                                                <input mdbInput type="text" formControlName="inventoryName"
-                                                    class="form-control" />
-                                                <label mdbLabel class="form-label"
-                                                    style="font-weight: bold; font-size: 15px; ">Proto Type Style</label>
-                                            </mdb-form-control>
-                                        </div>
-                                    </form>
-                                </mat-card>
+                            <!-- +++++++++++++Image View Right Side  ++++++++++++++++ -->
+                            <div class="p-2   d-flex flex-wrap" style="width: 45%;">
+                                <div class="image-container flex-wrap">
+                                    <img src="assets/Image/processing.png" alt="Image 1">
+                                    <img src="assets/Image/processing.png" alt="Image 2">
+                                    <img src="assets/Image/processing.png" alt="Image 3">
+                                </div>
                             </div>
-                            
-                            
+
+
                         </div>
 
                     </mdb-tab>

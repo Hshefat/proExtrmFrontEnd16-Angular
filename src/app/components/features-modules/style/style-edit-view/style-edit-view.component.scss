@@ -57,4 +57,32 @@
   
   }
 
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    grid-template-rows: repeat(2, 1fr); /* Two rows */
+    gap: 10px; /* Gap between images */
+  }
+  
+  .image-container img {
+    width: 95%; /* Adjust image width */
+    height: 95%; /* Adjust image height */
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+    border: 2px solid #333;
+  }
+
+
+  .container {
+    display: flex; /* Use flexbox */
+    border: none;
+  }
+  
+  .box1, .box2 {
+    flex: 1; /* Both boxes will take up equal space */
+    border: 1px solid #333; /* Add borders to the boxes */
+    padding: 10px; /* Add padding for content */
+  }
+
+  
+
   

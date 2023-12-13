@@ -6,7 +6,7 @@
     <div class="side-nav">
       <app-side-bar></app-side-bar>
     </div>
-    <div class="main">
+    <div class="main  w-100 p-3" >
       <!-- for spinner  -->
       <div class="spinnerconent" *ngIf="isloaded">
         <div class="spinnerclass">
@@ -16,7 +16,7 @@
       <!-- for spinner END  -->
       
       <!-- Data table  -->
-      <div>
+      <div class="w-100 p-3">
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
         </mat-form-field>
