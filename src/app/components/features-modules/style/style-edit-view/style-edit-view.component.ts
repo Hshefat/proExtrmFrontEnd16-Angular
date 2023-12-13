@@ -8,7 +8,8 @@ import { IStyle } from 'src/app/model/style.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; 
-
+import { ToastrService } from 'ngx-toastr';
+import { TosterSercicesService } from 'src/app/layout-services/toster-sercices.service';
 @Component({
   selector: 'app-style-edit-view',
   templateUrl: './style-edit-view.component.html',
@@ -37,7 +38,8 @@ export class StyleEditViewComponent implements OnInit {
     private services: StyleService,
     private formBuilder: FormBuilder,
     private router: Router,
-
+    private toastr: ToastrService,
+    private notifyTostServices: TosterSercicesService
   ) { }
 
   ngOnInit(): void {
@@ -74,19 +76,34 @@ formInitialize() {
   searchInputValueByInventoryCode(form: FormGroup) {
     this.searchInventoryCode = form.value.inventoryCode;
     console.log('fff',form.value.inventoryCode);
-    this.router.navigate(['/style-view/', this.searchInventoryCode ]);
-
+    
+    this.toastr.success('Hello world!', 'Toastr fun!');
     if(this.searchInventoryCode != null){
       this.services.getByIdEditView(this.searchInventoryCode).subscribe(res => {
         this.styleObj = res;
+        if(res){
+          this.router.navigate(['/style-view/', this.searchInventoryCode ]);
+        }
         console.log('searchInventoryCode', res)
         this.setValueFromMtbfData(res)
         this.isloaded = false;
+        
+      },
+      (error: any) => {
+      
+      alert('No Data' )
+
+        console.error(error);
       })
-    }
+    }  
+    
   }
 
 
+  tostButton(){
+    // this.toastr.success('Hello world!', 'Toastr fun!');
+    this.notifyTostServices.showSuccess("Data shown successfully !!", "Notification")
+  }
    getInventoryCode() {
     let id = this.route.paramMap.subscribe({
       next: (param) => {

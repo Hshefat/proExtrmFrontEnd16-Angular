@@ -19,24 +19,28 @@
 
 
           <div>
-                <form class="form" [formGroup]="frmGroup" name="frmGroup">
+                <form class="form" [formGroup]="frmGroup" (ngSubmit)="searchInputValueByInventoryCode(frmGroup)">
                     <div class="d-flex">
-                        <p style="font-weight: bold; font-size: 15px;
-                        height: 50px; line-height: 50px;"> Style Code : &nbsp;&nbsp;</p>
-                        <mat-form-field>
-                            <input matInput formControlName="inventoryCode"  
-                                placeholder="Search" #input>
+                   
+                  
+                        
+
+                        <mat-form-field appearance="outline">
+                            <mat-label style="font-weight: bold; font-size: 15px; ">Style Code :</mat-label>
+                            <input matInput formControlName="inventoryCode"  #input >
+                            <button type="submit"   matSuffix>
+                                <mat-icon matSuffix>search</mat-icon>
+                            </button>
                         </mat-form-field>
+
+
+
                         <P style="font-weight: bold; font-size: 15px;
                         height: 50px; line-height: 50px;">&nbsp;&nbsp;{{styleObj.inventoryName}}</P>
-
                     </div>
-
-
-
+                   
                 </form>
             </div>  
-
             <br>
             <div>
                 <form [formGroup]="frmGroup" (ngSubmit)="searchInputValueByInventoryCode(frmGroup)">
@@ -44,7 +48,6 @@
                     <button type="submit">Su bmit</button>
                   </form>
             </div>
-
 
               <!-- <div class="d-flex ">
                 <div>
