@@ -72,8 +72,8 @@ formInitialize() {
   }
 
   searchInputValueByInventoryCode(form: FormGroup) {
-    this.searchInventoryCode = form.value.searchInventoryCode;
-    console.log('fff',form.value.searchInventoryCode);
+    this.searchInventoryCode = form.value.inventoryCode;
+    console.log('fff',form.value.inventoryCode);
     this.router.navigate(['/style-view/', this.searchInventoryCode ]);
 
     if(this.searchInventoryCode != null){

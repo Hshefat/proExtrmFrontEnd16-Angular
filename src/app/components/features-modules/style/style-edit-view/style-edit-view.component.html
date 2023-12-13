@@ -24,7 +24,7 @@
                         <p style="font-weight: bold; font-size: 15px;
                         height: 50px; line-height: 50px;"> Style Code : &nbsp;&nbsp;</p>
                         <mat-form-field>
-                            <input matInput formControlName="inventoryCode" (keyup)="applyFilter($event)"
+                            <input matInput formControlName="inventoryCode"  
                                 placeholder="Search" #input>
                         </mat-form-field>
                         <P style="font-weight: bold; font-size: 15px;
@@ -39,8 +39,8 @@
 
             <br>
             <div>
-                <form [formGroup]="searchFrmGroup" (ngSubmit)="searchInputValueByInventoryCode(searchFrmGroup)">
-                    <input id="name" type="text" formControlName="searchInventoryCode" />
+                <form [formGroup]="frmGroup" (ngSubmit)="searchInputValueByInventoryCode(frmGroup)">
+                    <input id="name" type="text" formControlName="inventoryCode" />
                     <button type="submit">Su bmit</button>
                   </form>
             </div>
