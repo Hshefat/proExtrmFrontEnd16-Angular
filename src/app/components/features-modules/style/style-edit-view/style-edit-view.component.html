@@ -18,111 +18,114 @@
             <!-- for spinner END  -->
 
 
-          <div>
+            <div>
                 <form class="form" [formGroup]="frmGroup" (ngSubmit)="searchInputValueByInventoryCode(frmGroup)">
                     <div class="d-flex">
-                   
-                  
-                        
-
                         <mat-form-field appearance="outline">
                             <mat-label style="font-weight: bold; font-size: 15px; ">Style Code :</mat-label>
-                            <input matInput formControlName="inventoryCode"  #input >
-                            <button type="submit"   matSuffix>
+                            <input matInput formControlName="inventoryCode" #input>
+                            <button type="submit" matSuffix>
                                 <mat-icon matSuffix>search</mat-icon>
                             </button>
                         </mat-form-field>
-
-
-
                         <P style="font-weight: bold; font-size: 15px;
                         height: 50px; line-height: 50px;">&nbsp;&nbsp;{{styleObj.inventoryName}}</P>
                     </div>
-                   
                 </form>
-            </div>  
-            <br>
-            <div>
-                <form [formGroup]="frmGroup" (ngSubmit)="searchInputValueByInventoryCode(frmGroup)">
-                    <input id="name" type="text" formControlName="inventoryCode" />
-                    <button type="submit">Su bmit</button>
-                  </form>
             </div>
-
-              <!-- <div class="d-flex ">
-                <div>
-                    <form class="form" [formGroup]="frmGroup" name="frmGroup">
-                        <table class="mat-elevation-z6">
-                            <thead>
-                                <tr>
-                                    <th class="top-header">Designation</th>
-                                    <th class="top-header">Designation</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <mat-form-field class="w-full">
-                                            <input formControlName="inventoryCode" appearance="outline"
-                                                autocomplete="off" matInput required>
-                                        </mat-form-field>
-                                    </td>
-                                    <td>
-                                        <mat-form-field class="w-full">
-                                            <input formControlName="inventoryCode" appearance="outline"
-                                                autocomplete="off" matInput required>
-                                        </mat-form-field>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </form>
-                </div>
-            </div>   -->
             <!-- ===================== -->
 
+            <div>
+                <mdb-tabs>
+                    <mdb-tab>
+                        <ng-template mdbTabTitle>
+                            <span>
+                                <i class="fas fa-tshirt"></i>
+                                General
+                            </span>
+                        </ng-template>
 
-            <mdb-tabs>
-                <mdb-tab>
-                    <ng-template mdbTabTitle>
-                        <span>
-                            <i class="fas fa-tshirt"></i>
-                            General
-                        </span>
-                    </ng-template>
-                    Tab content 1
-                </mdb-tab>
-                <mdb-tab>
-                    <ng-template mdbTabTitle>
-                        <span>
-                            <i class="fas fa-archive"></i>
-                            BOM
-                        </span>
-                    </ng-template>
-                    Tab content 2
-                </mdb-tab>
-                <mdb-tab>
-                    <ng-template mdbTabTitle>
-                        <span>
-                            <i class="fas fa-truck"></i>
-                            Oder Info
-                        </span>
-                    </ng-template>
-                    Tab content 3
-                </mdb-tab>
-                <mdb-tab>
-                    <ng-template mdbTabTitle>
-                        <span>
-                            <i class="fas fa-money-check-alt"></i>
-                            Cost
-                        </span>
-                    </ng-template>
-                    Tab content 4
-                </mdb-tab>
+                        <div class="d-flex  p-2">
+                            <div class="p-2 flex-fill">
+                                <mat-card>
+                                    <form class="form" [formGroup]="frmGroup">
+                                        <div class=" p-3">
+                                            <mdb-form-control>
+                                                <input mdbInput type="text" formControlName="inventoryName"
+                                                    class="form-control" />
+                                                <label mdbLabel class="form-label"
+                                                    style="font-weight: bold; font-size: 15px; ">Name</label>
+                                            </mdb-form-control>
+                                            <br>
+                                            <mdb-form-control  >
+                                                <input mdbInput type="text" formControlName="inventoryName"
+                                                    class="form-control" />
+                                                <label mdbLabel class="form-label"
+                                                    style="font-weight: bold; font-size: 15px; ">Proto Type Style</label>
+                                            </mdb-form-control>
+                                        </div>
+                                    </form>
+                                </mat-card>
+                            </div>
+                            <!-- +++++++++++++++++++++++++++++ -->
+                            <div class="p-2 flex-fill">
+                                <mat-card>
+                                    <form class="form" [formGroup]="frmGroup">
+                                        <div class="w-50 p-3">
+                                            <mdb-form-control>
+                                                <input mdbInput type="text" formControlName="inventoryName"
+                                                    class="form-control" />
+                                                <label mdbLabel class="form-label"
+                                                    style="font-weight: bold; font-size: 15px; ">Name</label>
+                                            </mdb-form-control>
+                                            <br>
+                                            <mdb-form-control  >
+                                                <input mdbInput type="text" formControlName="inventoryName"
+                                                    class="form-control" />
+                                                <label mdbLabel class="form-label"
+                                                    style="font-weight: bold; font-size: 15px; ">Proto Type Style</label>
+                                            </mdb-form-control>
+                                        </div>
+                                    </form>
+                                </mat-card>
+                            </div>
+                            
+                            
+                        </div>
 
-            </mdb-tabs>
+                    </mdb-tab>
+
+                    <mdb-tab>
+                        <ng-template mdbTabTitle>
+                            <span>
+                                <i class="fas fa-archive"></i>
+                                BOM
+                            </span>
+                        </ng-template>
+                        Tab content 2
+                    </mdb-tab>
+                    <mdb-tab>
+                        <ng-template mdbTabTitle>
+                            <span>
+                                <i class="fas fa-truck"></i>
+                                Oder Info
+                            </span>
+                        </ng-template>
+                        Tab content 3
+                    </mdb-tab>
+                    <mdb-tab>
+                        <ng-template mdbTabTitle>
+                            <span>
+                                <i class="fas fa-money-check-alt"></i>
+                                Cost
+                            </span>
+                        </ng-template>
+                        Tab content 4
+                    </mdb-tab>
+
+                </mdb-tabs>
+            </div>
+
 
 
 

@@ -64,8 +64,97 @@ export class StyleEditViewComponent implements OnInit {
 formInitialize() {
   this.frmGroup = this.formBuilder.group({
     inventoryCode: [''], 
+    inventoryName: [''], 
+    protoTypeStyle: [''], 
+    accessCode: [''], 
+    customer: [''], 
+    department: [''], 
+    itemDepartmentId: [''], 
+    gender: [''], 
+
+
+    season: [''], 
+    brand: [''], 
+    category: [''], 
+    categoryId: [''], 
+    proCertification: [''], 
+
+
+    customerStyleNo: [''], 
+    styleDeal: [''], 
+    factory: [''], 
+    smv: [''], 
+    print: [''], 
+    emprodery: [''], 
+    oldStyleCode: [''], 
+    complexityMatrix: [''], 
+    route: [''], 
+    learningCurv: [''], 
+    nonWash: [''], 
+
+
+
+    washColorName: [''], 
+    styleDescription: [''], 
+
+
+    buyersContract: [''], 
+    merchandiser: [''], 
+    productionMerchandiserId: [''], 
+    technician: [''], 
+    gpq: [''], 
+    teamLeader: [''], 
   })
 }
+setValueFromMtbfData(respone: any) {
+  this.frmGroup.patchValue({
+    inventoryCode: respone.inventoryCode,
+    inventoryName: respone.inventoryName,
+    protoTypeStyle: respone.protoTypeStyle,
+    
+    accessCode: respone.accessCode,
+    customer: respone.customer,
+    department: respone.department,
+    itemDepartmentId: respone.itemDepartmentId,
+    gender: respone.gender,
+    seasonCode: respone.seasonCode,
+    specialCode: respone.specialCode,
+    technicianId: respone.technicianId,
+    brand: respone.brand,
+
+    category: respone.category,
+    categoryId: respone.categoryId,
+    udPcertification: respone.udPcertification,
+    customerStyleNo: respone.customerStyleNo,
+    styleDeal: respone.styleDeal,
+    factory: respone.factory,
+
+    udSmv: respone.udSmv, 
+    print: respone.print,
+    emprodery:respone.emprodery,
+    udOldCode: respone.udOldCode, 
+    complexityMatrix: respone.complexityMatrix,
+    route: respone.route,
+    udLearningCurve: respone.udLearningCurve, 
+    nonWash: respone.nonWash,
+
+
+
+    washColorName: respone.washColorName, 
+    styleDescription: respone.styleDescription,
+
+
+    buyersContract: respone.buyersContract,
+    productionMerchandiserId: respone.productionMerchandiserId,
+    technician: respone.technician,
+    representativeId: respone.representativeId,
+    routeId: respone.routeId,
+    gpq: respone.gpq,
+    teamLeader: respone.teamLeader, 
+     
+  });
+}
+
   searchFormInit(): void {
     this.searchFrmGroup = new FormGroup({
       searchInventoryCode: new FormControl(''),
@@ -149,12 +238,7 @@ formInitialize() {
     })
   };
 
-  setValueFromMtbfData(respone: any) {
-    this.frmGroup.patchValue({
-      inventoryCode: respone.inventoryCode,
-       
-    });
-}
+ 
 
 
 applyFilter(event: Event) {
