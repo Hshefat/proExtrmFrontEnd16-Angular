@@ -7,7 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { IStyle } from 'src/app/model/style.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms'; 
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TosterSercicesService } from 'src/app/layout-services/toster-sercices.service';
 @Component({
@@ -59,146 +59,149 @@ export class StyleEditViewComponent implements OnInit {
 
   }
 
-// -----------------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------------
 
-formInitialize() {
-  this.frmGroup = this.formBuilder.group({
-    inventoryCode: [''], 
-    inventoryName: [''], 
-    protoTypeStyle: [''], 
-    accessCode: [''], 
-    customer: [''], 
-    department: [''], 
-    itemDepartmentId: [''], 
-    gender: [''], 
-
-
-    seasonCode: [''], 
-    brand: [''], 
-    category: [''], 
-    categoryId: [''], 
-    proCertification: [''], 
+  formInitialize() {
+    this.frmGroup = this.formBuilder.group({
+      inventoryCode: [''],
+      inventoryName: [''],
+      protoTypeStyle: [''],
+      accessCode: [''],
+      customer: [''],
+      department: [''],
+      itemDepartmentId: [''],
+      gender: [''],
 
 
-    customerStyleNo: [''], 
-    styleDeal: [''], 
-    factory: [''], 
-    udSmv: [''], 
-    print: [''], 
-    emprodery: [''], 
-    oldStyleCode: [''], 
-    complexityMatrix: [''], 
-    route: [''], 
-    learningCurv: [''], 
-    nonWash: [''], 
+      seasonCode: [''],
+      brand: [''],
+      category: [''],
+      categoryId: [''],
+      proCertification: [''],
 
 
-
-    washColorName: [''], 
-    styleDescription: [''], 
-
-
-    buyersContract: [''], 
-    merchandiser: [''], 
-    productionMerchandiserId: [''], 
-    technician: [''], 
-    gpq: [''], 
-    teamLeader: [''], 
-  })
-}
-setValueFromMtbfData(respone: any) {
-  this.frmGroup.patchValue({
-    inventoryCode: respone.inventoryCode,
-    inventoryName: respone.inventoryName,
-    protoTypeStyle: respone.protoTypeStyle,
-    
-    accessCode: respone.accessCode,
-    customer: respone.customer,
-    department: respone.department,
-    itemDepartmentId: respone.itemDepartmentId,
-    gender: respone.gender,
-    seasonCode: respone.seasonCode,
-    specialCode: respone.specialCode,
-    technicianId: respone.technicianId,
-    brand: respone.brand,
-
-    category: respone.category,
-    categoryId: respone.categoryId,
-    udPcertification: respone.udPcertification,
-    customerStyleNo: respone.customerStyleNo,
-    styleDeal: respone.styleDeal,
-    factory: respone.factory,
-
-    udSmv: respone.udSmv, 
-    print: respone.print,
-    emprodery:respone.emprodery,
-    udOldCode: respone.udOldCode, 
-    complexityMatrix: respone.complexityMatrix,
-    route: respone.route,
-    udLearningCurve: respone.udLearningCurve, 
-    nonWash: respone.nonWash,
+      customerStyleNo: [''],
+      styleDeal: [''],
+      factory: [''],
+      ud_Smv: [''],
+      ud_LearningCurve: [''],
+      print: [''],
+      emprodery: [''],
+      oldStyleCode: [''],
+      complexityMatrix: [''],
+      route: [''],
+      ud_Factory: [''],
+      nonWash: [''],
 
 
 
-    washColorName: respone.washColorName, 
-    styleDescription: respone.styleDescription,
+      washColorName: [''],
+      ud_StyleDescription: [''],
 
 
-    buyersContract: respone.buyersContract,
-    productionMerchandiserId: respone.productionMerchandiserId,
-    technician: respone.technician,
-    representativeId: respone.representativeId,
-    routeId: respone.routeId,
-    gpq: respone.gpq,
-    teamLeader: respone.teamLeader, 
-     
-  });
-}
+      buyersContract: [''],
+      merchandiser: [''],
+      productionMerchandiserId: [''],
+      technician: [''],
+      gpq: [''],
+      teamLeader: [''],
+    })
+  }
+  setValueFromMtbfData(respone: any) {
+    this.frmGroup.patchValue({
+      inventoryCode: respone.inventoryCode,
+      inventoryName: respone.inventoryName,
+      protoTypeStyle: respone.protoTypeStyle,
+
+      accessCode: respone.accessCode,
+      customer: respone.customer,
+      department: respone.department,
+      itemDepartmentId: respone.itemDepartmentId,
+      gender: respone.gender,
+      seasonCode: respone.seasonCode,
+      specialCode: respone.specialCode,
+      technicianId: respone.technicianId,
+      brand: respone.brand,
+
+      category: respone.category,
+      categoryId: respone.categoryId,
+      ud_Pcertification: respone.udPcertification,
+      customerStyleNo: respone.customerStyleNo,
+      styleDeal: respone.styleDeal,
+      ud_Factory: respone.ud_Factory,
+
+      ud_Smv: respone.ud_Smv,
+      print: respone.print,
+      emprodery: respone.emprodery,
+      udOldCode: respone.udOldCode,
+      complexityMatrix: respone.complexityMatrix,
+      route: respone.route,
+      ud_LearningCurve: respone.ud_LearningCurve,
+      nonWash: respone.nonWash,
+
+
+
+      washColorName: respone.washColorName,
+      ud_StyleDescription: respone.ud_StyleDescription,
+
+
+      buyersContract: respone.buyersContract,
+      productionMerchandiserId: respone.productionMerchandiserId,
+      technician: respone.technician,
+      representativeId: respone.representativeId,
+      routeId: respone.routeId,
+      gpq: respone.gpq,
+      teamLeader: respone.teamLeader,
+
+    });
+  }
 
   searchFormInit(): void {
     this.searchFrmGroup = new FormGroup({
       searchInventoryCode: new FormControl(''),
-    
+
     });
   }
 
   searchInputValueByInventoryCode(form: FormGroup) {
+    this.isloaded = true;
     this.searchInventoryCode = form.value.inventoryCode;
-    console.log('fff',form.value.inventoryCode);
-    
+    console.log('fff', form.value.inventoryCode);
+
     this.toastr.success('Hello world!', 'Toastr fun!');
-    if(this.searchInventoryCode != null){
+    if (this.searchInventoryCode != null) {
       this.services.getByIdEditView(this.searchInventoryCode).subscribe(res => {
+        this.isloaded = true;
         this.styleObj = res;
-        if(res){
-          this.router.navigate(['/style-view/', this.searchInventoryCode ]);
+        if (res) {
+          this.router.navigate(['/style-view/', this.searchInventoryCode]);
         }
         console.log('searchInventoryCode', res)
         this.setValueFromMtbfData(res)
         this.isloaded = false;
-        
-      },
-      (error: any) => {
-      
-      alert('No Data' )
 
-        console.error(error);
-      })
-    }  
-    
+      },
+        (error: any) => {
+
+          alert('No Data')
+
+          console.error(error);
+        })
+    }
+    this.isloaded = false;
   }
 
 
-  tostButton(){
+  tostButton() {
     // this.toastr.success('Hello world!', 'Toastr fun!');
     this.notifyTostServices.showSuccess("Data shown successfully !!", "Notification")
   }
-   getInventoryCode() {
+  getInventoryCode() {
     let id = this.route.paramMap.subscribe({
       next: (param) => {
         this.objId = param.get('id');
         console.log('Cons Id', this.objId);
-               
+
       }
     })
   }
@@ -212,8 +215,8 @@ setValueFromMtbfData(respone: any) {
   }
 
   getData() {
-    this.isloaded = true;
     this.services.getData().subscribe(res => {
+      this.isloaded = true;
       console.log(res);
       this.styleList = res;
       this.dataSource = new MatTableDataSource(this.styleList);
@@ -223,14 +226,13 @@ setValueFromMtbfData(respone: any) {
 
     }, (error: any) => {
       console.error(error);
-      this.isloaded = false;
     });
   }
 
 
   getByIdEditView() {
-    this.isloaded = true;
     this.services.getByIdEditView(this.objId).subscribe(res => {
+      this.isloaded = true;
       this.styleObj = res;
       console.log('styleObj', res)
       this.setValueFromMtbfData(res)
@@ -238,17 +240,17 @@ setValueFromMtbfData(respone: any) {
     })
   };
 
- 
 
 
-applyFilter(event: Event) {
-  const filterValue = (event.target as HTMLInputElement).value;
-  this.dataSource.filter = filterValue.trim().toLowerCase();
 
-  if (this.dataSource.paginator) {
-    this.dataSource.paginator.firstPage();
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
-}
 
 
 

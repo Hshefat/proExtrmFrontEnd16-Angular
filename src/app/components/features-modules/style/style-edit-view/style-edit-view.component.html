@@ -29,7 +29,7 @@
                             </button>
                         </mat-form-field>
                         <P style="font-weight: bold; font-size: 15px;
-                        height: 50px; line-height: 50px;">&nbsp;&nbsp;{{styleObj.inventoryName}}</P>
+                        height: 50px; line-height: 50px;">&nbsp;&nbsp;{{styleObj?.inventoryName}}</P>
                     </div>
                 </form>
             </div> 
@@ -169,14 +169,14 @@
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
+                                                            <input mdbInput type="text" class="form-control" formControlName ="ud_Factory" />
                                                             <label mdbLabel class="form-label"
                                                                 style="font-weight: bold; font-size: 15px; ">
                                                                 Factory</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
+                                                            <input mdbInput type="text" class="form-control" formControlName ="ud_Smv"/>
                                                             <label mdbLabel class="form-label"
                                                                 style="font-weight: bold; font-size: 15px; ">
                                                                 SMV</label>
@@ -239,7 +239,7 @@
 
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
+                                                            <input mdbInput type="text" class="form-control" formControlName = "ud_LearningCurve"/>
                                                             <label mdbLabel class="form-label"
                                                                 style="font-weight: bold; font-size: 15px; ">
                                                                 Learning Curv</label>
@@ -269,7 +269,7 @@
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
+                                                            <input mdbInput type="text" class="form-control" formControlName="ud_StyleDescription"/>
                                                             <label mdbLabel class="form-label"
                                                                 style="font-weight: bold; font-size: 15px; ">
                                                                 Style Description</label>
