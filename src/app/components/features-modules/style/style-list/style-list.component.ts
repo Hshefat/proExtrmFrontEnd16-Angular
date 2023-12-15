@@ -21,13 +21,15 @@ export class StyleListComponent implements OnInit {
 
   displayedColumns: string[] = ['recId', 'inventoryCode', 'inventoryName'
 
+    , 'departmentCode'
+    , 'departmentName'
     , 'seasonCode'
-    , 'accessCode'
-    , 'inventoryId'
-    , 'quantity'
-    , 'unitPrice'
     , 'workOrderGroupCode'
-    , 'workOrderNo'
+    , 'accessCode'
+    , 'markName'
+    , 'explanation'
+    , 'categoryName'
+    , 'quantity'  
   ];
   dataSource!: MatTableDataSource<IStyle>;
   styleList: IStyle[] = [];
