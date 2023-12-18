@@ -242,6 +242,12 @@ export interface IStyle extends IWorkOrder {
     ud_fabconstruction: any;
     ud_fabweavedesign: any;
     ud_fabfinish: any; 
+    ud_Pcertification: any; 
+    brand: any; 
+    producerInventoryCode: any; 
+    ud_Print: any; 
+    ud_Embrodery: any; 
+    ud_Washing: any; 
     
 
 }

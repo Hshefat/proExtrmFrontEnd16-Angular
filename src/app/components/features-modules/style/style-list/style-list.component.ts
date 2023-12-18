@@ -25,6 +25,7 @@ export class StyleListComponent implements OnInit {
     , 'departmentName'
     , 'seasonCode'
     , 'workOrderGroupCode'
+    , 'planDate'
     , 'accessCode'
     , 'markName'
     , 'explanation'

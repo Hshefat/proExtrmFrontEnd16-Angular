@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
-  GET_STYLE_BY_ID
+  GET_STYLE_BY_ID,
+  GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE
  } from '../constants/base-constant.constant';
 
 @Injectable({
@@ -32,6 +33,15 @@ export class StyleService {
 
   getByIdEditView(id: string): Observable<any> {
     const url = `${this.ApiUrl}${GET_STYLE_BY_ID}?id=${id}`; // Construct the complete URL with the ID as a query parameter
+    return this.http.get<any>(url).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
+
+  GetMercenEmployeesByInventoryCode(inventoryCode: string): Observable<any> {
+    const url = `${this.ApiUrl}${GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE}?inventoryCode=${inventoryCode}`; // Construct the complete URL with the ID as a query parameter
     return this.http.get<any>(url).pipe(
       map((res: any) => {
         return res;

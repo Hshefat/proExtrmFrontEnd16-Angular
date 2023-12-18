@@ -44,7 +44,7 @@
 
   .mat-row:hover {
     background-color: #E8EAF6;
-    cursor: pointer;
+     
   }
 
 .mat-header-cell, .mat-cell {
@@ -52,6 +52,11 @@
 }
 
 .mat-column-inventoryCode{
+  width: 120px;
+  min-width: 120px; 
+  cursor: pointer;
+  }
+.mat-column-planDate{
   width: 120px;
   min-width: 120px;
   }

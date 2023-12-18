@@ -10,6 +10,7 @@ export interface IWorkOrder {
     workOrderNo: any; 
     workOrderType: any; 
     workOrderGroupCode: any; 
+    planDate: Date;
 
     companyId: any;
     currentAccountId: any;

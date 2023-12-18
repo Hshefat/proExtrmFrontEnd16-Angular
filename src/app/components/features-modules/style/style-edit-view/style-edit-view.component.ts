@@ -22,14 +22,24 @@ export class StyleEditViewComponent implements OnInit {
   searchInventoryCode: any;
   itemId: any;
   conceptUuid: any;
-  isloaded = false;
+  isloaded = true;
   styleObj: any;
+  buyerContactList: any;
   frmGroup!: FormGroup;
   searchFrmGroup!: FormGroup;
 
   dataSource!: MatTableDataSource<IStyle>;
   @ViewChild(MatSort) sort!: MatSort;
   styleList: IStyle[] = [];
+  inventoryCode: any;
+  concatenatedBuyersContract: any;
+  concatenatedrepresentativeMercenDisName: any;
+  concatenatedtechnicianName: any;
+  concatenatedpatternCutterGPQName: any;
+  concatenatedproductionTeamLeadName: any;
+  ud_print: any;
+  ud_Embrodery: any;
+  ud_NonWash: any;
 
 
 
@@ -50,34 +60,51 @@ export class StyleEditViewComponent implements OnInit {
 
     this.getInventoryCode();
     this.getByIdEditView();
+    this.GetMercenEmployeesByInventoryCode();
     this.formInitialize();
     this.searchFormInit();
 
 
-    this.getData();
+    // this.getData();
     // this.snMethod();
 
   }
+  getInventoryCode() {
+    
 
+    let id = this.route.paramMap.subscribe({
+      next: (param) => {
+        this.objId = param.get('id');
+        console.log('Cons Id', this.objId);
+        this.isloaded = false;
+      }
+    })
+    
+
+  }
   // -----------------------------------------------------------------------------------
 
   formInitialize() {
+  
+
     this.frmGroup = this.formBuilder.group({
       inventoryCode: [''],
       inventoryName: [''],
       protoTypeStyle: [''],
       accessCode: [''],
-      customer: [''],
+      departmentCode: [''],
       department: [''],
       itemDepartmentId: [''],
-      gender: [''],
+      ud_Gender: [''],
+      ud_Customer: [''],
 
 
       seasonCode: [''],
       brand: [''],
       category: [''],
+      producerInventoryCode: [''],
       categoryId: [''],
-      proCertification: [''],
+      ud_Pcertification: [''],
 
 
       customerStyleNo: [''],
@@ -85,77 +112,170 @@ export class StyleEditViewComponent implements OnInit {
       factory: [''],
       ud_Smv: [''],
       ud_LearningCurve: [''],
-      print: [''],
+
+      ud_Print: new FormControl(false),
+      ud_NonWash: new FormControl(false),
+      ud_Embrodery: new FormControl(false),
       emprodery: [''],
       oldStyleCode: [''],
-      complexityMatrix: [''],
+      ud_Cmatrix: [''],
       route: [''],
-      ud_Factory: [''],
-      nonWash: [''],
+      ud_Factory: [''], 
 
 
 
       washColorName: [''],
       ud_StyleDescription: [''],
+      routeId: [''],
 
 
-      buyersContract: [''],
-      merchandiser: [''],
-      productionMerchandiserId: [''],
-      technician: [''],
-      gpq: [''],
-      teamLeader: [''],
-    })
+      technicianCode: [''],
+      patternCutterGPQCode: [''],
+      representativeMercenDisCode: [''],
+      productionTeamLeadCode: [''],
+      buyersContractEmployeeIDCode: [''],
+      combinedValue: [''],
+
+      technicianName: [''],
+      patternCutterGPQName: [''],
+      representativeMercenDisName: [''],
+      productionTeamLeadName: [''],
+      buyersContractEmployeeIDName: [''],
+      
+    });
+   
+    this.isloaded = false;
   }
-  setValueFromMtbfData(respone: any) {
+
+  setValueFromStyleViewCard(respone: any) {
+    try {
+      console.log("response.ud_Print", respone.ud_Print);
+      console.log("response.ud_Embrodery", respone.ud_Embrodery);
+      console.log("response.ud_NonWash", respone.ud_NonWash);
+    
+      switch (true) {
+        case respone.ud_Print === 1:
+          this.ud_print = true;
+          break;
+        case respone.ud_Embrodery === 1:
+          this.ud_Embrodery = true;
+          break;
+        case respone.ud_NonWash === 1:
+          this.ud_NonWash = true;
+          break;
+        default:
+          break;
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+    }
+
+    
+
     this.frmGroup.patchValue({
+
+      ud_Print: this.ud_print,
+      ud_Embrodery: this.ud_Embrodery,
+      ud_NonWash: this.ud_NonWash,
+
+
+
       inventoryCode: respone.inventoryCode,
       inventoryName: respone.inventoryName,
       protoTypeStyle: respone.protoTypeStyle,
-
       accessCode: respone.accessCode,
-      customer: respone.customer,
-      department: respone.department,
+
+      departmentCode: respone.imItemDepartmentDto.departmentCode,
+      departmentName: respone?.imItemDepartmentDto?.departmentName,
+      ud_Customer: respone?.imItemDepartmentDto?.ud_Customer,
       itemDepartmentId: respone.itemDepartmentId,
-      gender: respone.gender,
+      ud_Gender: respone.ud_Gender,
       seasonCode: respone.seasonCode,
       specialCode: respone.specialCode,
       technicianId: respone.technicianId,
-      brand: respone.brand,
+      
+      brand: respone.imMarkDto.markName,
+      
 
-      category: respone.category,
+      category: respone.imCategoryDto.categoryName,
       categoryId: respone.categoryId,
-      ud_Pcertification: respone.udPcertification,
+      ud_Pcertification: respone.ud_Pcertification,
       customerStyleNo: respone.customerStyleNo,
-      styleDeal: respone.styleDeal,
+      ud_StyleDeal: respone.ud_StyleDeal,
       ud_Factory: respone.ud_Factory,
 
       ud_Smv: respone.ud_Smv,
+      producerInventoryCode: respone.producerInventoryCode,
       print: respone.print,
       emprodery: respone.emprodery,
       udOldCode: respone.udOldCode,
-      complexityMatrix: respone.complexityMatrix,
+      ud_Cmatrix: respone.ud_Cmatrix,
       route: respone.route,
       ud_LearningCurve: respone.ud_LearningCurve,
       nonWash: respone.nonWash,
-
-
-
       washColorName: respone.washColorName,
       ud_StyleDescription: respone.ud_StyleDescription,
-
-
-      buyersContract: respone.buyersContract,
-      productionMerchandiserId: respone.productionMerchandiserId,
-      technician: respone.technician,
-      representativeId: respone.representativeId,
       routeId: respone.routeId,
-      gpq: respone.gpq,
-      teamLeader: respone.teamLeader,
 
     });
+    this.isloaded = false;
   }
 
+
+ 
+  GetMercenEmployeesByInventoryCode() { 
+    this.services.GetMercenEmployeesByInventoryCode(this.objId).subscribe(res => { 
+      this.buyerContactList = res;
+      console.log('GetMercenEmployeesByInventoryCode', res);
+      // this.buyerContactSetValue(res)
+      this.populateFormWithData(res);
+    })
+    this.isloaded = false;
+  };
+  populateFormWithData(respons: any) {
+    this.concatenatedBuyersContract = respons[1]?.hrEmployeeDto?.employeeCode + ' ' + respons[1]?.hrEmployeeDto?.employeeName;
+    this.concatenatedrepresentativeMercenDisName = respons[2]?.hrEmployeeDto?.employeeCode + ' ' + respons[2]?.hrEmployeeDto?.employeeName;
+    this.concatenatedtechnicianName = respons[0]?.hrEmployeeDto?.employeeCode + ' ' + respons[0]?.hrEmployeeDto?.employeeName;
+    this.concatenatedpatternCutterGPQName = respons[1]?.hrEmployeeDto?.employeeCode + ' ' +respons[1]?.hrEmployeeDto?.employeeName;
+    this.concatenatedproductionTeamLeadName = respons[3]?.hrEmployeeDto?.employeeCode + ' ' +respons[3]?.hrEmployeeDto?.employeeName;
+
+    if (respons && respons.length > 0) {
+      console.log('respp',respons);
+      this.frmGroup.patchValue({
+       
+        // buyersContractEmployeeIDName: this.concatenatedBuyersContract,
+        // representativeMercenDisName: this.concatenatedrepresentativeMercenDisName,
+        // technicianName: this.concatenatedtechnicianName,
+        // patternCutterGPQName: this.concatenatedpatternCutterGPQName,
+        // productionTeamLeadName: this.concatenatedproductionTeamLeadName,
+         
+        // buyersContractEmployeeIDCode:  respons[1]?.hrEmployeeDto?.employeeCode,
+        buyersContractEmployeeIDName: respons[1]?.hrEmployeeDto?.employeeName,
+
+        
+        // representativeMercenDisCode: respons[2]?.hrEmployeeDto?.employeeCode,
+        representativeMercenDisName: respons[1]?.hrEmployeeDto?.employeeName,
+
+        // technicianCode: respons[0]?.hrEmployeeDto?.employeeCode,
+        technicianName: respons[3]?.hrEmployeeDto?.employeeName,
+
+        // patternCutterGPQCode: respons[1]?.hrEmployeeDto?.employeeCode,
+        patternCutterGPQName: respons[0]?.hrEmployeeDto?.employeeName,
+
+
+        // productionTeamLeadCode: respons[3]?.hrEmployeeDto?.employeeCode,
+        productionTeamLeadName: respons[2]?.hrEmployeeDto?.employeeName,
+
+      });
+    }
+    
+  
+ 
+
+  }
+
+
+  
   searchFormInit(): void {
     this.searchFrmGroup = new FormGroup({
       searchInventoryCode: new FormControl(''),
@@ -163,22 +283,19 @@ export class StyleEditViewComponent implements OnInit {
     });
   }
 
-  searchInputValueByInventoryCode(form: FormGroup) {
-    this.isloaded = true;
+  // button Clicked By inventoryCode search 
+  searchInputValueByInventoryCode(form: FormGroup) { 
     this.searchInventoryCode = form.value.inventoryCode;
-    console.log('fff', form.value.inventoryCode);
+    console.log('searchInventoryCode', this.searchInventoryCode);
 
-    this.toastr.success('Hello world!', 'Toastr fun!');
-    if (this.searchInventoryCode != null) {
+    if (this.objId != null) {
       this.services.getByIdEditView(this.searchInventoryCode).subscribe(res => {
-        this.isloaded = true;
         this.styleObj = res;
         if (res) {
           this.router.navigate(['/style-view/', this.searchInventoryCode]);
         }
         console.log('searchInventoryCode', res)
-        this.setValueFromMtbfData(res)
-        this.isloaded = false;
+        this.setValueFromStyleViewCard(res)
 
       },
         (error: any) => {
@@ -196,15 +313,7 @@ export class StyleEditViewComponent implements OnInit {
     // this.toastr.success('Hello world!', 'Toastr fun!');
     this.notifyTostServices.showSuccess("Data shown successfully !!", "Notification")
   }
-  getInventoryCode() {
-    let id = this.route.paramMap.subscribe({
-      next: (param) => {
-        this.objId = param.get('id');
-        console.log('Cons Id', this.objId);
 
-      }
-    })
-  }
 
 
   snMethod() {
@@ -216,29 +325,28 @@ export class StyleEditViewComponent implements OnInit {
 
   getData() {
     this.services.getData().subscribe(res => {
-      this.isloaded = true;
       console.log(res);
       this.styleList = res;
       this.dataSource = new MatTableDataSource(this.styleList);
       this.dataSource.sort = this.sort;
-
-      this.isloaded = false;
-
     }, (error: any) => {
       console.error(error);
     });
+    this.isloaded = false;
+
   }
 
 
   getByIdEditView() {
-    this.services.getByIdEditView(this.objId).subscribe(res => {
-      this.isloaded = true;
+    this.services.getByIdEditView(this.objId)?.subscribe(res => {
       this.styleObj = res;
       console.log('styleObj', res)
-      this.setValueFromMtbfData(res)
-      this.isloaded = false;
+      this.setValueFromStyleViewCard(res)
     })
+    this.isloaded = false;
   };
+
+  
 
 
 

@@ -22,7 +22,7 @@
                 <form class="form" [formGroup]="frmGroup" (ngSubmit)="searchInputValueByInventoryCode(frmGroup)">
                     <div class="d-flex">
                         <mat-form-field appearance="outline">
-                            <mat-label style="font-weight: bold; font-size: 15px; ">Style Code :</mat-label>
+                            <mat-label >Style Code :</mat-label>
                             <input matInput formControlName="inventoryCode" #input>
                             <button type="submit" matSuffix>
                                 <mat-icon matSuffix>search</mat-icon>
@@ -58,14 +58,14 @@
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" formControlName="inventoryName"
                                                                 class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">Name</label>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >Name</label>
                                                         </mdb-form-control>
 
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">Proto Type
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >Proto Type
                                                                 Style</label>
                                                         </mdb-form-control>
                                                     </div>
@@ -82,31 +82,31 @@
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" formControlName="accessCode"
                                                                 class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">Access
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >Access
                                                                 Code</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="ud_Customer"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Customer
                                                             </label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="departmentCode"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Department
                                                             </label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="ud_Gender"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Gender</label>
                                                         </mdb-form-control>
                                                     </div>
@@ -119,29 +119,28 @@
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" formControlName="seasonCode"
                                                                 class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">Season</label>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >Season</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control"  formControlName="brand"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Brand</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control"  formControlName="category"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Category</label>
                                                         </mdb-form-control>
                                                       
-                                                        <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
-                                                                Pro. Certification</label>
+                                                        <mdb-form-control class="mdbFormControl ">
+                                                            <input mdbInput type="text" class="form-control"  formControlName="ud_Pcertification"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"  style="color: rebeccapurple;">
+                                                                Pro. Certification  </label>
                                                         </mdb-form-control>
                                                     </div>
                                                 </form>
@@ -155,46 +154,46 @@
                                                 <form class="form" [formGroup]="frmGroup">
                                                     <div class=" p-3">
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="producerInventoryCode"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Customer Style No</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="ud_StyleDeal"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Style Deal</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" class="form-control" formControlName ="ud_Factory" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Factory</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" class="form-control" formControlName ="ud_Smv"/>
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 SMV</label>
                                                         </mdb-form-control>
                                                       
                                                         <div class="d-flex justify-content-between">
                                                             <div class="form-check" style="font-size: 15px;">
-                                                                <input mdbCheckbox class="form-check-input"
-                                                                    type="checkbox" value="" id="flexCheckChecked"
-                                                                    [checked]="true" />
+                                                                <input mdbCheckbox class="form-check-input" formControlName ="ud_Print"
+                                                                    type="checkbox" value="ud_Print" id="flexCheckChecked" name="ud_Print"
+                                                                     />
                                                                 <label class="form-check-label" for="flexCheckChecked">
                                                                     Print
                                                                 </label>
                                                             </div>
                                                             <div class="form-check" style="font-size: 15px;">
-                                                                <input mdbCheckbox class="form-check-input"
-                                                                    type="checkbox" value="" id="flexCheckChecked"
-                                                                    [checked]="true" />
+                                                                <input mdbCheckbox class="form-check-input" formControlName ="ud_Embrodery"
+                                                                    type="checkbox" value="ud_Embrodery" id="flexCheckChecked" name="ud_Embrodery"
+                                                                     />
                                                                 <label class="form-check-label" for="flexCheckChecked">
                                                                     Embrodery
                                                                 </label>
@@ -203,9 +202,9 @@
 
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName ="ud_OldCode"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Old Style Code</label>
                                                         </mdb-form-control>
 
@@ -217,37 +216,38 @@
                                                 <form class="form" [formGroup]="frmGroup">
                                                     <div class=" p-3">
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="ud_Cmatrix"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Complexity Matrix</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="routeId"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Route</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control"  />
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Size</label>
                                                         </mdb-form-control>
 
                                                       
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" class="form-control" formControlName = "ud_LearningCurve"/>
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Learning Curv</label>
                                                         </mdb-form-control>
                                                       
                                                         <div class="form-check" style="font-size: 15px;">
-                                                            <input mdbCheckbox class="form-check-input" type="checkbox"
-                                                                value="" id="flexCheckChecked" [checked]="true" />
+                                                            <input mdbCheckbox class="form-check-input" formControlName ="ud_NonWash"
+                                                            type="checkbox" value="ud_NonWash" id="flexCheckChecked" name="ud_NonWash"
+                                                             />
                                                             <label class="form-check-label" for="flexCheckChecked">
                                                                 Non Wash
                                                             </label>
@@ -263,15 +263,15 @@
                                                 <form class="form" [formGroup]="frmGroup">
                                                     <div class=" p-3">
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">Wash Color Name</label>
+                                                            <input mdbInput type="text" class="form-control" formControlName="category"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >Wash Color Name</label>
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
                                                             <input mdbInput type="text" class="form-control" formControlName="ud_StyleDescription"/>
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Style Description</label>
                                                         </mdb-form-control>
                                                     </div>
@@ -288,34 +288,35 @@
                                                 <form class="form" [formGroup]="frmGroup">
                                                     <div class=" p-3">
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" formControlName="inventoryCode"/>
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="buyersContractEmployeeIDName"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;" 
+                                                                >
                                                             Buyers Contact</label>
+                                                          
                                                         </mdb-form-control>
                                                       
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="representativeMercenDisName"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;" 
+                                                                >
                                                                 Merchandiser</label>
                                                         </mdb-form-control>
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="technicianName"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Technician</label>
                                                         </mdb-form-control>
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="patternCutterGPQName"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 GPQ</label>
                                                         </mdb-form-control>
                                                         <mdb-form-control class="mdbFormControl">
-                                                            <input mdbInput type="text" class="form-control" />
-                                                            <label mdbLabel class="form-label"
-                                                                style="font-weight: bold; font-size: 15px; ">
+                                                            <input mdbInput type="text" class="form-control" formControlName="productionTeamLeadName"/>
+                                                            <label mdbLabel class="form-label formLabel"  style="color: rebeccapurple;"
+                                                                >
                                                                 Team Leader</label>
                                                         </mdb-form-control>
                                                     </div>
