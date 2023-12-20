@@ -1,8 +1,10 @@
+
+
+
 {
-    "/ImItem/*": {
-      "target": "http://localhost:62282",
-      "secure": false,
-      "logLevel": "debug",
-      "changeOrigin": true
-    }
-  }
+ 
+  "target" : "https://localhost:7164/ImItem/GetImageFileByInventoryId", 
+  "secure": false, 
+  "changeOrigin": true, 
+  "logLevel": "debug"
+}

@@ -5,3 +5,4 @@ export const GET_STYLE_BY_ID =   '/GetStyleById';
 export const ImItem = '/ImItem';
 export const GetMercenEmployeesByInventoryCode = '/GetMercenEmployeesByInventoryCode';
 export const GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE = '/GetMercenEmployeesByInventoryCode';
+export const GET_IMAGE_FILE_BY_INVENTORY_ID = '/GetImageFileByInventoryId';

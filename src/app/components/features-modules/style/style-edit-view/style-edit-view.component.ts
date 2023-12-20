@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TosterSercicesService } from 'src/app/layout-services/toster-sercices.service';
+import { ItemAttatchment } from 'src/app/model/item-attatchment.model';
+import { GET_IMAGE_FILE_BY_INVENTORY_ID } from 'src/app/constants/base-constant.constant';
 @Component({
   selector: 'app-style-edit-view',
   templateUrl: './style-edit-view.component.html',
@@ -31,6 +33,7 @@ export class StyleEditViewComponent implements OnInit {
   dataSource!: MatTableDataSource<IStyle>;
   @ViewChild(MatSort) sort!: MatSort;
   styleList: IStyle[] = [];
+  itemAttatchmentList: ItemAttatchment[] = [];
   inventoryCode: any;
   concatenatedBuyersContract: any;
   concatenatedrepresentativeMercenDisName: any;
@@ -40,10 +43,16 @@ export class StyleEditViewComponent implements OnInit {
   ud_print: any;
   ud_Embrodery: any;
   ud_NonWash: any;
+  imageObj: any;
+  recIdForImage: any;
+  imageUrl: any;
+  imageList: any;
+  imageFileName: any;
 
 
 
-
+  private ApiUrl = 'https://localhost:7164/ImItem';
+  imageRecId: any;
   constructor(private route: ActivatedRoute,
     private services: StyleService,
     private formBuilder: FormBuilder,
@@ -61,6 +70,7 @@ export class StyleEditViewComponent implements OnInit {
     this.getInventoryCode();
     this.getByIdEditView();
     this.GetMercenEmployeesByInventoryCode();
+    // this.GetImageFileByInventoryId();
     this.formInitialize();
     this.searchFormInit();
 
@@ -70,7 +80,7 @@ export class StyleEditViewComponent implements OnInit {
 
   }
   getInventoryCode() {
-    
+
 
     let id = this.route.paramMap.subscribe({
       next: (param) => {
@@ -79,71 +89,71 @@ export class StyleEditViewComponent implements OnInit {
         this.isloaded = false;
       }
     })
-    
+
 
   }
   // -----------------------------------------------------------------------------------
 
   formInitialize() {
-  
+
 
     this.frmGroup = this.formBuilder.group({
-      inventoryCode: [''],
-      inventoryName: [''],
-      protoTypeStyle: [''],
-      accessCode: [''],
-      departmentCode: [''],
-      department: [''],
-      itemDepartmentId: [''],
-      ud_Gender: [''],
-      ud_Customer: [''],
+      inventoryCode: new FormControl(''),
+      inventoryName: new FormControl(''),
+      protoTypeStyle: new FormControl(''),
+      accessCode: new FormControl(''),
+      departmentCode: new FormControl(''),
+      department: new FormControl(''),
+      itemDepartmentId: new FormControl(''),
+      ud_Gender: new FormControl(''),
+      ud_Customer: new FormControl(''),
 
 
-      seasonCode: [''],
-      brand: [''],
-      category: [''],
-      producerInventoryCode: [''],
-      categoryId: [''],
-      ud_Pcertification: [''],
+      seasonCode: new FormControl(''),
+      brand: new FormControl(''),
+      category: new FormControl(''),
+      producerInventoryCode: new FormControl(''),
+      categoryId: new FormControl(''),
+      ud_Pcertification: new FormControl(''),
 
 
-      customerStyleNo: [''],
-      styleDeal: [''],
-      factory: [''],
-      ud_Smv: [''],
-      ud_LearningCurve: [''],
+      customerStyleNo: new FormControl(''),
+      styleDeal: new FormControl(''),
+      factory: new FormControl(''),
+      ud_Smv: new FormControl(''),
+      ud_LearningCurve: new FormControl(''),
 
       ud_Print: new FormControl(false),
       ud_NonWash: new FormControl(false),
       ud_Embrodery: new FormControl(false),
-      emprodery: [''],
-      oldStyleCode: [''],
-      ud_Cmatrix: [''],
-      route: [''],
-      ud_Factory: [''], 
+      emprodery: new FormControl(''),
+      oldStyleCode: new FormControl(''),
+      ud_Cmatrix: new FormControl(''),
+      route: new FormControl(''),
+      ud_Factory: new FormControl(''),
 
 
 
-      washColorName: [''],
-      ud_StyleDescription: [''],
-      routeId: [''],
+      washColorName: new FormControl(''),
+      ud_StyleDescription: new FormControl(''),
+      routeId: new FormControl(''),
 
 
-      technicianCode: [''],
-      patternCutterGPQCode: [''],
-      representativeMercenDisCode: [''],
-      productionTeamLeadCode: [''],
-      buyersContractEmployeeIDCode: [''],
-      combinedValue: [''],
+      technicianCode: new FormControl(''),
+      patternCutterGPQCode: new FormControl(''),
+      representativeMercenDisCode: new FormControl(''),
+      productionTeamLeadCode: new FormControl(''),
+      buyersContractEmployeeIDCode: new FormControl(''),
+      combinedValue: new FormControl(''),
 
-      technicianName: [''],
-      patternCutterGPQName: [''],
-      representativeMercenDisName: [''],
-      productionTeamLeadName: [''],
-      buyersContractEmployeeIDName: [''],
-      
+      technicianName: new FormControl(''),
+      patternCutterGPQName: new FormControl(''),
+      representativeMercenDisName: new FormControl(''),
+      productionTeamLeadName: new FormControl(''),
+      buyersContractEmployeeIDName: new FormControl(''),
+
     });
-   
+
     this.isloaded = false;
   }
 
@@ -152,7 +162,7 @@ export class StyleEditViewComponent implements OnInit {
       console.log("response.ud_Print", respone.ud_Print);
       console.log("response.ud_Embrodery", respone.ud_Embrodery);
       console.log("response.ud_NonWash", respone.ud_NonWash);
-    
+
       switch (true) {
         case respone.ud_Print === 1:
           this.ud_print = true;
@@ -170,7 +180,7 @@ export class StyleEditViewComponent implements OnInit {
       console.error("An error occurred:", error);
     }
 
-    
+
 
     this.frmGroup.patchValue({
 
@@ -193,9 +203,9 @@ export class StyleEditViewComponent implements OnInit {
       seasonCode: respone.seasonCode,
       specialCode: respone.specialCode,
       technicianId: respone.technicianId,
-      
+
       brand: respone.imMarkDto.markName,
-      
+
 
       category: respone.imCategoryDto.categoryName,
       categoryId: respone.categoryId,
@@ -222,9 +232,9 @@ export class StyleEditViewComponent implements OnInit {
   }
 
 
- 
-  GetMercenEmployeesByInventoryCode() { 
-    this.services.GetMercenEmployeesByInventoryCode(this.objId).subscribe(res => { 
+
+  GetMercenEmployeesByInventoryCode() {
+    this.services.GetMercenEmployeesByInventoryCode(this.objId).subscribe(res => {
       this.buyerContactList = res;
       console.log('GetMercenEmployeesByInventoryCode', res);
       // this.buyerContactSetValue(res)
@@ -236,23 +246,23 @@ export class StyleEditViewComponent implements OnInit {
     this.concatenatedBuyersContract = respons[1]?.hrEmployeeDto?.employeeCode + ' ' + respons[1]?.hrEmployeeDto?.employeeName;
     this.concatenatedrepresentativeMercenDisName = respons[2]?.hrEmployeeDto?.employeeCode + ' ' + respons[2]?.hrEmployeeDto?.employeeName;
     this.concatenatedtechnicianName = respons[0]?.hrEmployeeDto?.employeeCode + ' ' + respons[0]?.hrEmployeeDto?.employeeName;
-    this.concatenatedpatternCutterGPQName = respons[1]?.hrEmployeeDto?.employeeCode + ' ' +respons[1]?.hrEmployeeDto?.employeeName;
-    this.concatenatedproductionTeamLeadName = respons[3]?.hrEmployeeDto?.employeeCode + ' ' +respons[3]?.hrEmployeeDto?.employeeName;
+    this.concatenatedpatternCutterGPQName = respons[1]?.hrEmployeeDto?.employeeCode + ' ' + respons[1]?.hrEmployeeDto?.employeeName;
+    this.concatenatedproductionTeamLeadName = respons[3]?.hrEmployeeDto?.employeeCode + ' ' + respons[3]?.hrEmployeeDto?.employeeName;
 
     if (respons && respons.length > 0) {
-      console.log('respp',respons);
+      console.log('respp', respons);
       this.frmGroup.patchValue({
-       
+
         // buyersContractEmployeeIDName: this.concatenatedBuyersContract,
         // representativeMercenDisName: this.concatenatedrepresentativeMercenDisName,
         // technicianName: this.concatenatedtechnicianName,
         // patternCutterGPQName: this.concatenatedpatternCutterGPQName,
         // productionTeamLeadName: this.concatenatedproductionTeamLeadName,
-         
+
         // buyersContractEmployeeIDCode:  respons[1]?.hrEmployeeDto?.employeeCode,
         buyersContractEmployeeIDName: respons[1]?.hrEmployeeDto?.employeeName,
 
-        
+
         // representativeMercenDisCode: respons[2]?.hrEmployeeDto?.employeeCode,
         representativeMercenDisName: respons[1]?.hrEmployeeDto?.employeeName,
 
@@ -268,14 +278,14 @@ export class StyleEditViewComponent implements OnInit {
 
       });
     }
-    
-  
- 
+
+
+
 
   }
 
 
-  
+
   searchFormInit(): void {
     this.searchFrmGroup = new FormGroup({
       searchInventoryCode: new FormControl(''),
@@ -284,7 +294,7 @@ export class StyleEditViewComponent implements OnInit {
   }
 
   // button Clicked By inventoryCode search 
-  searchInputValueByInventoryCode(form: FormGroup) { 
+  searchInputValueByInventoryCode(form: FormGroup) {
     this.searchInventoryCode = form.value.inventoryCode;
     console.log('searchInventoryCode', this.searchInventoryCode);
 
@@ -340,13 +350,61 @@ export class StyleEditViewComponent implements OnInit {
   getByIdEditView() {
     this.services.getByIdEditView(this.objId)?.subscribe(res => {
       this.styleObj = res;
+      this.recIdForImage = res.recId;
       console.log('styleObj', res)
-      this.setValueFromStyleViewCard(res)
+      console.log('recIdForImage', this.recIdForImage)
+      this.setValueFromStyleViewCard(res);
+      this.GetImageFileByInventoryId(res?.recId);
     })
     this.isloaded = false;
   };
 
+  GetImageFileByInventoryId(recId: any) {
+    this.services.GetImageFileByInventoryId(recId)?.subscribe(res => {
+      this.itemAttatchmentList = res;
+      console.log('imageList', res)
+     
+      this.itemAttatchmentList.forEach(dd=>{
+        this.imageObj = dd.fileName;
+        this.imageRecId = dd.recId;
+        console.log(' this.imageObj ', this.imageObj  );
+        console.log(' this.imageRecId ', this.imageRecId  );
+
+      })
+
+
+    })
+    this.isloaded = false;
+  };
+
+
   
+  
+
+
+
+  // GetImageFileByInventoryId(inventoryId: any): void {
+  //   this.services.GetImageFileByInventoryId(inventoryId).subscribe(
+  //     (data: Blob) => {
+  //       this.createImageFromBlob(data);
+  //     },
+  //     error => {
+  //       console.error('Error fetching image: ', error);
+  //     }
+  //   );
+  // }
+
+  // createImageFromBlob(image: Blob): void {
+  //   const reader = new FileReader();
+  //   reader.addEventListener('load', () => {
+  //     this.imageFileName = reader.result;
+  //     console.log("this.Image", this.imageFileName);
+  //   }, false);
+
+  //   if (image) {
+  //     reader.readAsDataURL(image);
+  //   }
+  // }
 
 
 

@@ -4,7 +4,8 @@ import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
   GET_STYLE_BY_ID,
-  GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE
+  GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE,
+  GET_IMAGE_FILE_BY_INVENTORY_ID
  } from '../constants/base-constant.constant';
 
 @Injectable({
@@ -13,7 +14,7 @@ import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
 export class StyleService {
       // BASE_API_URL: string = environment.baseApiEndPoint;
 
-  private ApiUrl = 'https://localhost:7164/ImItem'
+  private ApiUrl = 'https://localhost:7164/ImItem';
   constructor(private http: HttpClient) { }
 
 
@@ -42,6 +43,15 @@ export class StyleService {
 
   GetMercenEmployeesByInventoryCode(inventoryCode: string): Observable<any> {
     const url = `${this.ApiUrl}${GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE}?inventoryCode=${inventoryCode}`; // Construct the complete URL with the ID as a query parameter
+    return this.http.get<any>(url).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
+
+  GetImageFileByInventoryId(inventoryId: string): Observable<any> {
+    const url = `${this.ApiUrl}${GET_IMAGE_FILE_BY_INVENTORY_ID}?inventoryId=${inventoryId}`; // Construct the complete URL with the ID as a query parameter
     return this.http.get<any>(url).pipe(
       map((res: any) => {
         return res;
