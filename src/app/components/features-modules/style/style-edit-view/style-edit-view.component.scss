@@ -91,7 +91,38 @@
   margin-bottom: 10px;
 }
  
+.mat-column-workOrderNo{
+  width: 130px;
+  min-width: 130px;
+  }
+
+
  
-
-
-
+  .tables {
+    width: 100% !important;
+    text-align: center;
+    padding: 5px;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 20%;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    width: 150px;
+  }
+  .mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0 0px 0 6px;
+  }
+  
+  .th-center{
+    text-align: center;
+  }
+  .th-left{
+    text-align: left;
+  }
+  .th-right{
+    text-align: right;
+  }
+ 

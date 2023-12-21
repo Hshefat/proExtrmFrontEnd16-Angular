@@ -30,7 +30,12 @@
     width: 20%;
   }
   
-  
+  .mat-header-cell, .mat-cell {
+    width: 150px;
+  }
+  .mdc-data-table__cell, .mdc-data-table__header-cell {
+    padding: 0 0px 0 6px;
+  }
   
   .th-center{
     text-align: center;
@@ -47,9 +52,6 @@
      
   }
 
-.mat-header-cell, .mat-cell {
-  width: 150px;
-}
 
 .mat-column-inventoryCode{
   width: 120px;
@@ -64,6 +66,5 @@
   width: 2px;
   min-width: 2px;
   }
-  .mdc-data-table__cell, .mdc-data-table__header-cell {
-    padding: 0 0px 0 6px;
-  }
+  
+ 

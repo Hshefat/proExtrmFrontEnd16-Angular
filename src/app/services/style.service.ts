@@ -5,7 +5,8 @@ import { environment } from 'src/environments/environment';
 import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
   GET_STYLE_BY_ID,
   GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE,
-  GET_IMAGE_FILE_BY_INVENTORY_ID
+  GET_IMAGE_FILE_BY_INVENTORY_ID,
+  GET_ORDER_INGO_BY_INVENTORY_CODE
  } from '../constants/base-constant.constant';
 
 @Injectable({
@@ -50,8 +51,8 @@ export class StyleService {
     );
   }
 
-  GetImageFileByInventoryId(inventoryId: string): Observable<any> {
-    const url = `${this.ApiUrl}${GET_IMAGE_FILE_BY_INVENTORY_ID}?inventoryId=${inventoryId}`; // Construct the complete URL with the ID as a query parameter
+  GetOrderInfoByInventoryCode(inventoryCode: string): Observable<any> {
+    const url = `${this.ApiUrl}${GET_ORDER_INGO_BY_INVENTORY_CODE}?inventoryCode=${inventoryCode}`; // Construct the complete URL with the ID as a query parameter
     return this.http.get<any>(url).pipe(
       map((res: any) => {
         return res;
@@ -59,9 +60,6 @@ export class StyleService {
     );
   }
 
-
-  /*  getLocationByObjectiveCostIdUsingProjectSummary(id: number): Observable<any> {
-     return this.http.get<any>(this._BASE_URL + GET_BY_OBJECTIVE_AND_COST_ID_USING_PROJECT_SUMMARY + '/' + id);
- } */
+ 
 
 }

@@ -30,9 +30,6 @@ export class StyleEditViewComponent implements OnInit {
   frmGroup!: FormGroup;
   searchFrmGroup!: FormGroup;
 
-  dataSource!: MatTableDataSource<IStyle>;
-  @ViewChild(MatSort) sort!: MatSort;
-  styleList: IStyle[] = [];
   itemAttatchmentList: ItemAttatchment[] = [];
   inventoryCode: any;
   concatenatedBuyersContract: any;
@@ -50,9 +47,33 @@ export class StyleEditViewComponent implements OnInit {
   imageFileName: any;
 
 
+  displayedColumns: string[] = [
+    'ID'
+    ,'workOrderNo'
+    , 'workOrderDate'
+    , 'deliveryDate'
+    , 'cuttingApprovedDate'
+    , 'workOrderGroupCode'
+    , 'customerOrderNo'
+    , 'explanation'
+    , 'quantity'
+    , 'forexId'
+    , 'forexUnitPrice'
+    , 'status'
+    , 'unitPrice'
 
-  private ApiUrl = 'https://localhost:7164/ImItem';
+  ];
+  dataSource!: MatTableDataSource<IStyle>;
+  styleList: IStyle[] = [];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
+
+
+
+
   imageRecId: any;
+  getOrderList: any;
+  InventoryName: any;
   constructor(private route: ActivatedRoute,
     private services: StyleService,
     private formBuilder: FormBuilder,
@@ -66,13 +87,14 @@ export class StyleEditViewComponent implements OnInit {
     //   this.itemId = res;
     //   console.log("OBJ", this.itemId.id);
     // });
-
+    this.formInitialize();
+    this.searchFormInit();
     this.getInventoryCode();
     this.getByIdEditView();
     this.GetMercenEmployeesByInventoryCode();
-    // this.GetImageFileByInventoryId();
-    this.formInitialize();
-    this.searchFormInit();
+    this.GetOrderInfoByInventoryCode();
+
+
 
 
     // this.getData();
@@ -80,8 +102,6 @@ export class StyleEditViewComponent implements OnInit {
 
   }
   getInventoryCode() {
-
-
     let id = this.route.paramMap.subscribe({
       next: (param) => {
         this.objId = param.get('id');
@@ -89,14 +109,11 @@ export class StyleEditViewComponent implements OnInit {
         this.isloaded = false;
       }
     })
-
-
   }
+
   // -----------------------------------------------------------------------------------
 
   formInitialize() {
-
-
     this.frmGroup = this.formBuilder.group({
       inventoryCode: new FormControl(''),
       inventoryName: new FormControl(''),
@@ -132,12 +149,9 @@ export class StyleEditViewComponent implements OnInit {
       route: new FormControl(''),
       ud_Factory: new FormControl(''),
 
-
-
       washColorName: new FormControl(''),
       ud_StyleDescription: new FormControl(''),
       routeId: new FormControl(''),
-
 
       technicianCode: new FormControl(''),
       patternCutterGPQCode: new FormControl(''),
@@ -159,10 +173,6 @@ export class StyleEditViewComponent implements OnInit {
 
   setValueFromStyleViewCard(respone: any) {
     try {
-      console.log("response.ud_Print", respone.ud_Print);
-      console.log("response.ud_Embrodery", respone.ud_Embrodery);
-      console.log("response.ud_NonWash", respone.ud_NonWash);
-
       switch (true) {
         case respone.ud_Print === 1:
           this.ud_print = true;
@@ -179,16 +189,10 @@ export class StyleEditViewComponent implements OnInit {
     } catch (error) {
       console.error("An error occurred:", error);
     }
-
-
-
     this.frmGroup.patchValue({
-
       ud_Print: this.ud_print,
       ud_Embrodery: this.ud_Embrodery,
       ud_NonWash: this.ud_NonWash,
-
-
 
       inventoryCode: respone.inventoryCode,
       inventoryName: respone.inventoryName,
@@ -203,9 +207,7 @@ export class StyleEditViewComponent implements OnInit {
       seasonCode: respone.seasonCode,
       specialCode: respone.specialCode,
       technicianId: respone.technicianId,
-
       brand: respone.imMarkDto.markName,
-
 
       category: respone.imCategoryDto.categoryName,
       categoryId: respone.categoryId,
@@ -236,8 +238,6 @@ export class StyleEditViewComponent implements OnInit {
   GetMercenEmployeesByInventoryCode() {
     this.services.GetMercenEmployeesByInventoryCode(this.objId).subscribe(res => {
       this.buyerContactList = res;
-      console.log('GetMercenEmployeesByInventoryCode', res);
-      // this.buyerContactSetValue(res)
       this.populateFormWithData(res);
     })
     this.isloaded = false;
@@ -250,29 +250,20 @@ export class StyleEditViewComponent implements OnInit {
     this.concatenatedproductionTeamLeadName = respons[3]?.hrEmployeeDto?.employeeCode + ' ' + respons[3]?.hrEmployeeDto?.employeeName;
 
     if (respons && respons.length > 0) {
-      console.log('respp', respons);
       this.frmGroup.patchValue({
-
         // buyersContractEmployeeIDName: this.concatenatedBuyersContract,
         // representativeMercenDisName: this.concatenatedrepresentativeMercenDisName,
         // technicianName: this.concatenatedtechnicianName,
         // patternCutterGPQName: this.concatenatedpatternCutterGPQName,
         // productionTeamLeadName: this.concatenatedproductionTeamLeadName,
-
         // buyersContractEmployeeIDCode:  respons[1]?.hrEmployeeDto?.employeeCode,
         buyersContractEmployeeIDName: respons[1]?.hrEmployeeDto?.employeeName,
-
-
         // representativeMercenDisCode: respons[2]?.hrEmployeeDto?.employeeCode,
         representativeMercenDisName: respons[1]?.hrEmployeeDto?.employeeName,
-
         // technicianCode: respons[0]?.hrEmployeeDto?.employeeCode,
         technicianName: respons[3]?.hrEmployeeDto?.employeeName,
-
         // patternCutterGPQCode: respons[1]?.hrEmployeeDto?.employeeCode,
         patternCutterGPQName: respons[0]?.hrEmployeeDto?.employeeName,
-
-
         // productionTeamLeadCode: respons[3]?.hrEmployeeDto?.employeeCode,
         productionTeamLeadName: respons[2]?.hrEmployeeDto?.employeeName,
 
@@ -296,17 +287,13 @@ export class StyleEditViewComponent implements OnInit {
   // button Clicked By inventoryCode search 
   searchInputValueByInventoryCode(form: FormGroup) {
     this.searchInventoryCode = form.value.inventoryCode;
-    console.log('searchInventoryCode', this.searchInventoryCode);
-
     if (this.objId != null) {
       this.services.getByIdEditView(this.searchInventoryCode).subscribe(res => {
         this.styleObj = res;
         if (res) {
           this.router.navigate(['/style-view/', this.searchInventoryCode]);
         }
-        console.log('searchInventoryCode', res)
         this.setValueFromStyleViewCard(res)
-
       },
         (error: any) => {
 
@@ -335,8 +322,8 @@ export class StyleEditViewComponent implements OnInit {
 
   getData() {
     this.services.getData().subscribe(res => {
-      console.log(res);
       this.styleList = res;
+      this.InventoryName = res.InventoryName;
       this.dataSource = new MatTableDataSource(this.styleList);
       this.dataSource.sort = this.sort;
     }, (error: any) => {
@@ -351,60 +338,22 @@ export class StyleEditViewComponent implements OnInit {
     this.services.getByIdEditView(this.objId)?.subscribe(res => {
       this.styleObj = res;
       this.recIdForImage = res.recId;
-      console.log('styleObj', res)
-      console.log('recIdForImage', this.recIdForImage)
       this.setValueFromStyleViewCard(res);
-      this.GetImageFileByInventoryId(res?.recId);
-    })
-    this.isloaded = false;
-  };
-
-  GetImageFileByInventoryId(recId: any) {
-    this.services.GetImageFileByInventoryId(recId)?.subscribe(res => {
-      this.itemAttatchmentList = res;
-      console.log('imageList', res)
-     
-      this.itemAttatchmentList.forEach(dd=>{
-        this.imageObj = dd.fileName;
-        this.imageRecId = dd.recId;
-        console.log(' this.imageObj ', this.imageObj  );
-        console.log(' this.imageRecId ', this.imageRecId  );
-
-      })
-
-
     })
     this.isloaded = false;
   };
 
 
-  
-  
-
-
-
-  // GetImageFileByInventoryId(inventoryId: any): void {
-  //   this.services.GetImageFileByInventoryId(inventoryId).subscribe(
-  //     (data: Blob) => {
-  //       this.createImageFromBlob(data);
-  //     },
-  //     error => {
-  //       console.error('Error fetching image: ', error);
-  //     }
-  //   );
-  // }
-
-  // createImageFromBlob(image: Blob): void {
-  //   const reader = new FileReader();
-  //   reader.addEventListener('load', () => {
-  //     this.imageFileName = reader.result;
-  //     console.log("this.Image", this.imageFileName);
-  //   }, false);
-
-  //   if (image) {
-  //     reader.readAsDataURL(image);
-  //   }
-  // }
+  GetOrderInfoByInventoryCode() {
+    this.services.GetOrderInfoByInventoryCode(this.objId)?.subscribe(res => {
+      this.getOrderList = res;
+      console.log('GetOrderInfoByInventoryCode', this.getOrderList)
+      this.dataSource = new MatTableDataSource(this.getOrderList);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+    this.isloaded = false;
+  };
 
 
 
