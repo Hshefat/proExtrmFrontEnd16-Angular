@@ -21,6 +21,7 @@
   padding: 30px;
   font-family: Arial; 
   font-size: 10px;
+  width: 100%;
 }
 
 .spinnerconent {
@@ -96,7 +97,9 @@
   min-width: 130px;
   }
 
-
+  .mat-row:hover {
+    background-color: #e7e69b;
+  }
  
   .tables {
     width: 100% !important;
