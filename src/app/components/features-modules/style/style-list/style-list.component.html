@@ -21,7 +21,7 @@
           <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
         </mat-form-field>
 
-        <div class="mat-elevation-z8" style="text-align: center; width: 100%;">
+        <div class="mat-elevation-z8" style="text-align: center; width: 100%; padding: 10px;">
           <table mat-table [dataSource]="dataSource" matSort>
 
 
@@ -78,9 +78,9 @@
             </ng-container>
 
             <!-- quantity Column -->
-            <ng-container matColumnDef="planDate">
+            <ng-container matColumnDef="deliveryDate">
               <th mat-header-cell *matHeaderCellDef mat-sort-header> Place Date </th>
-              <td mat-cell *matCellDef="let row"> {{row?.workOrderDto?.planDate | date: 'd-MMM-yyyy' }} </td>
+              <td mat-cell *matCellDef="let row"> {{row?.workOrderDto?.deliveryDate | date: 'd-MMM-yyyy' }} </td>
             </ng-container>
 
             <!-- quantity Column -->

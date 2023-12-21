@@ -337,6 +337,7 @@ export class StyleEditViewComponent implements OnInit {
   getByIdEditView() {
     this.services.getByIdEditView(this.objId)?.subscribe(res => {
       this.styleObj = res;
+      console.log('ff',res)
       this.recIdForImage = res.recId;
       this.setValueFromStyleViewCard(res);
     })
