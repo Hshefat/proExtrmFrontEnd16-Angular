@@ -1,11 +1,12 @@
 import { IWorkOrder } from "./work-order.model";
 
 export interface IStyle extends IWorkOrder {
+    clicked?: boolean;
     woOrderDto: IWorkOrder[]; 
     recid: any;
     companyid: any;
     inventorytype: any;
-    inventorycode: any;
+    inventoryCode: any;
     inventoryname: any;
     groupid: any;
     categoryid: any;

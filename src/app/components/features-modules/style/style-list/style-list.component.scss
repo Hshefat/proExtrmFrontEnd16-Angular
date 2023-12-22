@@ -17,7 +17,8 @@
   .main {
     padding: 30px;
     width: 100%;
-   
+    overflow-y: auto;
+    
   }
   table {
     width: 100%;
@@ -30,9 +31,16 @@
     width: 20%;
   }
   
-  .mat-header-cell, .mat-cell {
+   .mat-cell {
     width: 150px;
   }
+
+  .mat-header-cell  {
+    width: 150px;
+ background-color: darkcyan;
+  }
+
+
   .mdc-data-table__cell, .mdc-data-table__header-cell {
     padding: 0 0px 0 6px;
   }
@@ -70,4 +78,49 @@
   min-width: 2px;
   }
   
- 
+  div.scroll {
+    margin: 2px, 2px;
+    padding: 2px;
+    height: 650px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+}
+
+.clicked-row {
+  color:    red; 
+  text-decoration: #113c60;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

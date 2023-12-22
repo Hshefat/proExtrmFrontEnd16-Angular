@@ -7,12 +7,14 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
 import { DashboardBoardComponent } from './components/features-modules/dashboard-board/dashboard-board.component';
 import { StatisticsComponent } from './components/features-modules/statistics/statistics.component';
 import { StyleEditViewComponent } from './components/features-modules/style/style-edit-view/style-edit-view.component';
+import { SalesComponent } from './components/features-modules/sales/sales.component';
 
 const routes: Routes = [
   
   { path: '', component: DashboardBoardComponent },
   { path: 'home', component: HomeComponent },
   { path: 'style-list', component: StyleListComponent }, 
+  { path: 'sales', component: SalesComponent }, 
   { path: 'style-view/:id', component: StyleEditViewComponent }, 
   { path: 'style-view', component: StyleEditViewComponent }, 
   { path: 'order-list', component: OrderListComponent },  

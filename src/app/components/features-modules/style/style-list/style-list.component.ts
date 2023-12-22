@@ -33,11 +33,13 @@ export class StyleListComponent implements OnInit {
     , 'quantity'  
   ];
   dataSource!: MatTableDataSource<IStyle>;
+  
   styleList: IStyle[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  inventoryCodeForSearch: any;
 
-
+  previousClickedRow: IStyle | null = null;
 
 
 
@@ -58,6 +60,7 @@ export class StyleListComponent implements OnInit {
     this.services.getData().subscribe(res => {
       console.log(res);
       this.styleList = res;
+      this.inventoryCodeForSearch = res?.inventoryCode;
       this.dataSource = new MatTableDataSource(this.styleList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -70,12 +73,43 @@ export class StyleListComponent implements OnInit {
     });
   }
 
-
-  onRowClicked(row: any) {
-    console.log("Clicked", row);
-    // let route = 'style-view';
-    // this.router.navigate([route], { queryParams: { id: row.InventoryCode } });
+owClicked(row: any) {
+    this.router.navigate(['/style-view', this.inventoryCodeForSearch]);
   }
+  openNewTab(rowData: any) {
+    console.log('row',rowData);
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/style-view', rowData.inventoryCode])
+    );
+
+    window.open(url, '_blank');
+    rowData.clicked = !rowData.clicked;
+  }
+
+  onRowClick(row: IStyle): void {
+    if (this.previousClickedRow && this.previousClickedRow !== row) {
+      this.previousClickedRow.clicked = false;
+    }
+  
+    console.log('row', row);
+    let invenCode = row.inventoryCode;
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/style-view',invenCode])
+    );
+    console.log('row.inventorycode', invenCode);
+    window.open(url, '_blank');
+  
+    row.clicked = !row.clicked;
+    this.previousClickedRow = row.clicked ? row : null;
+  }
+  
+
+  
+   
+
+    
+
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

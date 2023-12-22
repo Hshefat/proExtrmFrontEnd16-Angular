@@ -54,6 +54,7 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { ToastrModule } from 'ngx-toastr';
+import { SalesComponent } from './components/features-modules/sales/sales.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -75,6 +76,7 @@ import { ToastrModule } from 'ngx-toastr';
     StatisticsComponent,
     StyleEditViewComponent,
     OrderEditViewComponent,
+    SalesComponent,
 
 
 
