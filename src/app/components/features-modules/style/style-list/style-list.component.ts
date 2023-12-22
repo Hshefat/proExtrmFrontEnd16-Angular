@@ -40,6 +40,7 @@ export class StyleListComponent implements OnInit {
   inventoryCodeForSearch: any;
 
   previousClickedRow: IStyle | null = null;
+  totalStyleListCount: any;
 
 
 
@@ -60,11 +61,12 @@ export class StyleListComponent implements OnInit {
     this.services.getData().subscribe(res => {
       console.log(res);
       this.styleList = res;
+      this.totalStyleListCount = res.length; 
       this.inventoryCodeForSearch = res?.inventoryCode;
       this.dataSource = new MatTableDataSource(this.styleList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-
+      console.log('totalStyleListCount', this.totalStyleListCount);
       this.isloaded = false;
 
     }, (error: any) => {

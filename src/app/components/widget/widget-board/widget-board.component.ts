@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class WidgetBoardComponent {
 
+  isloaded = true;
+  ngOnInit(): void {
+
+    this.snMethod();
+  }
+
+
+  snMethod() {
+    setTimeout(() => {
+      this.isloaded = false;
+    }, 2000);
+  }
 }

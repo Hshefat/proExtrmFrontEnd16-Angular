@@ -5,10 +5,22 @@
         
       </div>
       <div class="value">
-        <div class="top">32</div>
-        <div class="bottom">Style</div>
+         <!-- for spinner  -->
+   
+      <!-- for spinner END  --> 
+
+        <div class="top">
+          <div class=" " *ngIf="isloaded">
+            <div class=" ">
+              <mat-progress-spinner color="accent" value="100" mode="indeterminate"></mat-progress-spinner>
+            </div>
+          </div>
+          {{totalStyleListCount}}</div>
+        <div class="bottom">Total Style List</div>
       </div>
     </div>
+
+
     <div class="widget yellow">
       <div class="icon">
         <fa-icon [icon]="faShoppingCart"></fa-icon>
@@ -19,6 +31,8 @@
         <div class="bottom">Order</div>
       </div>
     </div>
+
+
     <div class="widget red">
       <div class="icon">
         <fa-icon [icon]="faBoxes"></fa-icon>
@@ -28,6 +42,8 @@
         <div class="bottom">Products Sold</div>
       </div>
     </div>
+
+
     <div class="widget blue">
       <div class="icon">
         <fa-icon [icon]="faMoneyBill"></fa-icon>
@@ -37,4 +53,5 @@
         <div class="bottom">Total Revenue</div>
       </div>
     </div>
+    
   </div>
