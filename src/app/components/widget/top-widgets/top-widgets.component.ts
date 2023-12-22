@@ -32,12 +32,25 @@ export class TopWidgetsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getData();
+    this.GetAllStyleListCount();
   }
 
   getData() {
     this.services.getData().subscribe(res => {
       console.log(res);
-      this.totalStyleListCount = res.length; 
+    
+      this.isloaded = false;
+
+    }, (error: any) => {
+      console.error(error);
+      this.isloaded = false;
+    });
+  }
+
+  GetAllStyleListCount() {
+    this.services.GetAllStyleListCount().subscribe(res => {
+      console.log(res);
+      this.totalStyleListCount = res; 
       console.log('totalStyleListCount', this.totalStyleListCount);
       this.isloaded = false;
 

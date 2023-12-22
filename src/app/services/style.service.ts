@@ -6,7 +6,8 @@ import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
   GET_STYLE_BY_ID,
   GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE,
   GET_IMAGE_FILE_BY_INVENTORY_ID,
-  GET_ORDER_INGO_BY_INVENTORY_CODE
+  GET_ORDER_INGO_BY_INVENTORY_CODE,
+  GET_ALL_STYLE_LIST_COUNT
  } from '../constants/base-constant.constant';
 
 @Injectable({
@@ -21,6 +22,12 @@ export class StyleService {
 
   getData(): Observable<any> {
     return this.http.get<any>(this.ApiUrl + GET_ITEMS_WITH_WORK_ORDERS ).pipe(map((res: any) => {
+      return res;
+    }));
+  }
+
+  GetAllStyleListCount(): Observable<any> {
+    return this.http.get<any>(this.ApiUrl + GET_ALL_STYLE_LIST_COUNT ).pipe(map((res: any) => {
       return res;
     }));
   }
