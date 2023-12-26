@@ -40,12 +40,16 @@
 
             <div>
                 <mdb-tabs>
+                    <!-- GENERAL  -->
                     <mdb-tab>
                         <ng-template mdbTabTitle>
-                            <span>
-                                <i class="fas fa-tshirt"></i>
-                                General
-                            </span>
+                            <div class="justify-content-center">
+                                <img style="width: 30px; height: 30px; margin-top: -15px; 
+                                margin-bottom: -15px; margin-left: -25px;" src="assets/Image/dress.gif" alt="Image 3">
+                                <span>
+                                    GENERAL
+                                </span>
+                            </div>
                         </ng-template>
 
                         <table style="width: 100%;">
@@ -304,8 +308,6 @@
                                         </div>
                                         <br>
 
-
-
                                         <!-- 5th card  -->
                                         <div class="flex-fill  ">
                                             <mat-card style="width: 50%;">
@@ -392,32 +394,56 @@
                                 </td>
                             </tr>
                         </table>
-
-
                     </mdb-tab>
 
+
+                <!-- BOM start  -->
                     <mdb-tab>
                         <ng-template mdbTabTitle>
-                            <span>
-                                <i class="fas fa-archive"></i>
-                                BOM
-                            </span>
+                            <div class="justify-content-center">
+                                <img style="width: 30px; height: 30px; margin-top: -15px; 
+                                margin-bottom: -15px; margin-left: -25px;" src="assets/Image/document.gif" alt="Image 3">
+                                <span>
+                                    BOM
+                                </span>
+                            </div>
                         </ng-template>
 
-                        BOM
+                        <!-- Nested Tabs   -->
+                        <mdb-tabs>
+                            <mdb-tab>
+                                <ng-template mdbTabTitle>
+                                    FABRIC
+                                </ng-template>
+                                FABRIC FABRIC
+                            </mdb-tab>
+
+                            <mdb-tab>
+                                <ng-template mdbTabTitle>
+                                    TRIMS
+                                </ng-template>
+                                TRIMS TRIMS
+                            </mdb-tab>
+
+
+                        </mdb-tabs>
+
+                      
+                        
                     </mdb-tab>
                     <!-- End BoM  -->
 
                     <!-- start  Oder Info  -->
-                    <mdb-tab>
+                    <mdb-tab style="width: 10px;">
                         <ng-template mdbTabTitle>
-                            <span>
-                                <i class="fas fa-truck"></i>
-                                Oder Info
-                            </span>
+                            <div class="justify-content-center">
+                                <img style="width: 30px; height: 30px; margin-top: -15px; 
+                                margin-bottom: -15px; margin-left: -25px;" src="assets/Image/truck.gif" alt="Image 3">
+                                <span>
+                                    Oder Info
+                                </span>
+                            </div>
                         </ng-template>
-
-
                         <div class="mat-elevation-z8" style=" padding: 10px;">
                             <table class=" " style=" " mat-table [dataSource]="dataSource" matSort>
 
@@ -536,25 +562,21 @@
 
 
                         </div>
-
-
-
                     </mdb-tab>
 
 
                     <!-- Cost  -->
                     <mdb-tab>
                         <ng-template mdbTabTitle>
-                            <span>
-                                <i class="fas fa-money-check-alt"></i>
-                                Cost
-                            </span>
+                            <div class="justify-content-center">
+                                <img style="width: 30px; height: 30px; margin-top: -15px; 
+                                margin-bottom: -15px; margin-left: -25px;" src="assets/Image/dollar.gif" alt="Image 3">
+                                <span>
+                                    COST
+                                </span>
+                            </div>
                         </ng-template>
-
-
-
-
-                        <mat-card  style="padding: 15px;">
+                        <mat-card style="padding: 15px;">
                             <table class="table tableTh">
                                 <thead>
                                     <tr>
