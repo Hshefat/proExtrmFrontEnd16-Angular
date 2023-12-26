@@ -302,6 +302,7 @@ export class StyleEditViewComponent implements OnInit {
           this.router.navigate(['/style-view/', this.searchInventoryCode]);
         }
         this.setValueFromStyleViewCard(res);
+        this.GetStyleCostById(res?.recId);
       },
         (error: any) => {
 
