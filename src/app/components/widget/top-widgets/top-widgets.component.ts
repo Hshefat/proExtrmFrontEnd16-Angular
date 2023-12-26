@@ -24,6 +24,7 @@ export class TopWidgetsComponent implements OnInit {
   isloaded = true;
 
   totalStyleListCount: any;
+  getAllOrderListCount: any;
 
   constructor(private services: StyleService,
 
@@ -33,6 +34,7 @@ export class TopWidgetsComponent implements OnInit {
   ngOnInit(): void {
     this.getData();
     this.GetAllStyleListCount();
+    this.GetAllOrderListCount();
   }
 
   getData() {
@@ -52,6 +54,19 @@ export class TopWidgetsComponent implements OnInit {
       console.log(res);
       this.totalStyleListCount = res; 
       console.log('totalStyleListCount', this.totalStyleListCount);
+      this.isloaded = false;
+
+    }, (error: any) => {
+      console.error(error);
+      this.isloaded = false;
+    });
+  }
+
+  GetAllOrderListCount() {
+    this.services.GetAllOrderListCount().subscribe(res => {
+      console.log(res);
+      this.getAllOrderListCount = res; 
+      console.log('getAllOrderListCount', this.getAllOrderListCount);
       this.isloaded = false;
 
     }, (error: any) => {

@@ -74,6 +74,8 @@ export class StyleEditViewComponent implements OnInit {
   imageRecId: any;
   getOrderList: any;
   InventoryName: any;
+  getStyleCostObj: any;
+  styleRecId: any;
   constructor(private route: ActivatedRoute,
     private services: StyleService,
     private formBuilder: FormBuilder,
@@ -91,8 +93,8 @@ export class StyleEditViewComponent implements OnInit {
     this.searchFormInit();
     this.getInventoryCode();
     this.getByIdEditView();
-    this.GetMercenEmployeesByInventoryCode();
-    this.GetOrderInfoByInventoryCode();
+    this.GetMercenEmployeesByInventoryCode(this.objId);
+    this.GetOrderInfoByInventoryCode(this.objId);
 
 
 
@@ -159,6 +161,8 @@ export class StyleEditViewComponent implements OnInit {
       productionTeamLeadCode: new FormControl(''),
       buyersContractEmployeeIDCode: new FormControl(''),
       combinedValue: new FormControl(''),
+      ud_OldCode: new FormControl(''),
+      ud_StyleDeal: new FormControl(''),
 
       technicianName: new FormControl(''),
       patternCutterGPQName: new FormControl(''),
@@ -194,40 +198,40 @@ export class StyleEditViewComponent implements OnInit {
       ud_Embrodery: this.ud_Embrodery,
       ud_NonWash: this.ud_NonWash,
 
-      inventoryCode: respone.inventoryCode,
-      inventoryName: respone.inventoryName,
-      protoTypeStyle: respone.protoTypeStyle,
-      accessCode: respone.accessCode,
+      inventoryCode: respone?.inventoryCode,
+      inventoryName: respone?.inventoryName,
+      protoTypeStyle: respone?.protoTypeStyle,
+      accessCode: respone?.accessCode,
 
-      departmentCode: respone.imItemDepartmentDto.departmentCode,
+      departmentCode: respone?.imItemDepartmentDto.departmentCode,
       departmentName: respone?.imItemDepartmentDto?.departmentName,
       ud_Customer: respone?.imItemDepartmentDto?.ud_Customer,
-      itemDepartmentId: respone.itemDepartmentId,
-      ud_Gender: respone.ud_Gender,
-      seasonCode: respone.seasonCode,
-      specialCode: respone.specialCode,
-      technicianId: respone.technicianId,
-      brand: respone.imMarkDto.markName,
+      itemDepartmentId: respone?.itemDepartmentId,
+      ud_Gender: respone?.ud_Gender,
+      seasonCode: respone?.seasonCode,
+      specialCode: respone?.specialCode,
+      technicianId: respone?.technicianId,
+      brand: respone?.imMarkDto?.markName,
 
-      category: respone.imCategoryDto.categoryName,
-      categoryId: respone.categoryId,
-      ud_Pcertification: respone.ud_Pcertification,
-      customerStyleNo: respone.customerStyleNo,
-      ud_StyleDeal: respone.ud_StyleDeal,
-      ud_Factory: respone.ud_Factory,
+      category: respone?.imCategoryDto?.categoryName,
+      categoryId: respone?.categoryId,
+      ud_Pcertification: respone?.ud_Pcertification,
+      customerStyleNo: respone?.customerStyleNo,
+      ud_StyleDeal: respone?.ud_StyleDeal,
+      ud_Factory: respone?.ud_Factory,
 
-      ud_Smv: respone.ud_Smv,
-      producerInventoryCode: respone.producerInventoryCode,
-      print: respone.print,
-      emprodery: respone.emprodery,
-      udOldCode: respone.udOldCode,
-      ud_Cmatrix: respone.ud_Cmatrix,
-      route: respone.route,
-      ud_LearningCurve: respone.ud_LearningCurve,
-      nonWash: respone.nonWash,
-      washColorName: respone.washColorName,
-      ud_StyleDescription: respone.ud_StyleDescription,
-      routeId: respone.routeId,
+      ud_Smv: respone?.ud_Smv,
+      producerInventoryCode: respone?.producerInventoryCode,
+      print: respone?.print,
+      emprodery: respone?.emprodery,
+      ud_OldCode: respone?.ud_OldCode,
+      ud_Cmatrix: respone?.ud_Cmatrix,
+      route: respone?.route,
+      ud_LearningCurve: respone?.ud_LearningCurve,
+      nonWash: respone?.nonWash,
+      washColorName: respone?.washColorName,
+      ud_StyleDescription: respone?.ud_StyleDescription,
+      routeId: respone?.routeId,
 
     });
     this.isloaded = false;
@@ -235,14 +239,15 @@ export class StyleEditViewComponent implements OnInit {
 
 
 
-  GetMercenEmployeesByInventoryCode() {
-    this.services.GetMercenEmployeesByInventoryCode(this.objId).subscribe(res => {
+  GetMercenEmployeesByInventoryCode(respone: any) {
+    this.services.GetMercenEmployeesByInventoryCode(respone).subscribe(res => {
       this.buyerContactList = res;
-      this.populateFormWithData(res);
+      console.log('buyerContactList', this.buyerContactList);
+      this.setFormWithData(res);
     })
     this.isloaded = false;
   };
-  populateFormWithData(respons: any) {
+  setFormWithData(respons: any) {
     this.concatenatedBuyersContract = respons[1]?.hrEmployeeDto?.employeeCode + ' ' + respons[1]?.hrEmployeeDto?.employeeName;
     this.concatenatedrepresentativeMercenDisName = respons[2]?.hrEmployeeDto?.employeeCode + ' ' + respons[2]?.hrEmployeeDto?.employeeName;
     this.concatenatedtechnicianName = respons[0]?.hrEmployeeDto?.employeeCode + ' ' + respons[0]?.hrEmployeeDto?.employeeName;
@@ -288,12 +293,15 @@ export class StyleEditViewComponent implements OnInit {
   searchInputValueByInventoryCode(form: FormGroup) {
     this.searchInventoryCode = form.value.inventoryCode;
     if (this.objId != null) {
+      this.GetOrderInfoByInventoryCode(this.searchInventoryCode);
+      this.GetMercenEmployeesByInventoryCode(this.searchInventoryCode);
+    
       this.services.getByIdEditView(this.searchInventoryCode).subscribe(res => {
         this.styleObj = res;
         if (res) {
           this.router.navigate(['/style-view/', this.searchInventoryCode]);
         }
-        this.setValueFromStyleViewCard(res)
+        this.setValueFromStyleViewCard(res);
       },
         (error: any) => {
 
@@ -339,19 +347,33 @@ export class StyleEditViewComponent implements OnInit {
       this.styleObj = res;
       console.log('ff',res)
       this.recIdForImage = res.recId;
+      this.styleRecId = res.recId;
       this.setValueFromStyleViewCard(res);
+      this.GetStyleCostById(res.recId);
+      
     })
     this.isloaded = false;
   };
 
+  
 
-  GetOrderInfoByInventoryCode() {
-    this.services.GetOrderInfoByInventoryCode(this.objId)?.subscribe(res => {
+
+  GetOrderInfoByInventoryCode(recId:any) {
+    this.services.GetOrderInfoByInventoryCode(recId)?.subscribe(res => {
       this.getOrderList = res;
       console.log('GetOrderInfoByInventoryCode', this.getOrderList)
       this.dataSource = new MatTableDataSource(this.getOrderList);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+    })
+    this.isloaded = false;
+  };
+
+
+  GetStyleCostById(styleRecId:any) {
+    this.services.GetStyleCostById(styleRecId)?.subscribe(res => {
+      this.getStyleCostObj = res;
+      console.log('getStyleCostObj', this.getStyleCostObj)
     })
     this.isloaded = false;
   };

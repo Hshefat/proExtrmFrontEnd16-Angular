@@ -7,7 +7,9 @@ import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
   GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE,
   GET_IMAGE_FILE_BY_INVENTORY_ID,
   GET_ORDER_INGO_BY_INVENTORY_CODE,
-  GET_ALL_STYLE_LIST_COUNT
+  GET_ALL_STYLE_LIST_COUNT,
+  GET_ALL_ORDER_LIST_COUNT,
+  GET_STYLE_COST_BY_ID
  } from '../constants/base-constant.constant';
 
 @Injectable({
@@ -32,6 +34,12 @@ export class StyleService {
     }));
   }
 
+  GetAllOrderListCount(): Observable<any> {
+    return this.http.get<any>(this.ApiUrl + GET_ALL_ORDER_LIST_COUNT ).pipe(map((res: any) => {
+      return res;
+    }));
+  }
+
   // getByIdEditView(id: string): Observable<any> {
   //   debugger;
   //   return this.http.get<any>(this.ApiUrl + GET_STYLE_BY_ID+ '/' + id).pipe(map((res: any) => {
@@ -42,6 +50,15 @@ export class StyleService {
 
   getByIdEditView(id: string): Observable<any> {
     const url = `${this.ApiUrl}${GET_STYLE_BY_ID}?id=${id}`; // Construct the complete URL with the ID as a query parameter
+    return this.http.get<any>(url).pipe(
+      map((res: any) => {
+        return res;
+      })
+    );
+  }
+
+  GetStyleCostById(id: string): Observable<any> {
+    const url = `${this.ApiUrl}${GET_STYLE_COST_BY_ID}?id=${id}`; // Construct the complete URL with the ID as a query parameter
     return this.http.get<any>(url).pipe(
       map((res: any) => {
         return res;

@@ -10,10 +10,8 @@
       <!-- for spinner END  --> 
 
         <div class="top">
-          <div class=" " *ngIf="isloaded">
-            <div class=" ">
-              <mat-progress-spinner color="accent" value="100" mode="indeterminate"></mat-progress-spinner>
-            </div>
+          <div class="spinner-border" *ngIf="isloaded" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
           </div>
           {{totalStyleListCount}}</div>
         <div class="bottom">Total Style List</div>
@@ -27,8 +25,12 @@
         
       </div>
       <div class="value">
-        <div class="top">295</div>
-        <div class="bottom">Order</div>
+        <div class="top">
+          <div class="spinner-border" *ngIf="isloaded" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          {{getAllOrderListCount}}</div>
+        <div class="bottom">Total Order List</div>
       </div>
     </div>
 

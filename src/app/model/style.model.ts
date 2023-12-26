@@ -249,6 +249,8 @@ export interface IStyle extends IWorkOrder {
     ud_Print: any; 
     ud_Embrodery: any; 
     ud_Washing: any; 
+    ud_StyleDeal: any; 
+    ud_OldCode: any; 
     
 
 }
