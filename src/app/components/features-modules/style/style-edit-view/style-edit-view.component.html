@@ -397,39 +397,158 @@
                     </mdb-tab>
 
 
-                <!-- BOM start  -->
+                    <!-- BOM start  -->
                     <mdb-tab>
                         <ng-template mdbTabTitle>
                             <div class="justify-content-center">
                                 <img style="width: 30px; height: 30px; margin-top: -15px; 
-                                margin-bottom: -15px; margin-left: -25px;" src="assets/Image/document.gif" alt="Image 3">
+                                margin-bottom: -15px; margin-left: -25px;" src="assets/Image/document.gif"
+                                    alt="Image 3">
                                 <span>
                                     BOM
                                 </span>
                             </div>
                         </ng-template>
+                        <div>
 
-                        <!-- Nested Tabs   -->
-                        <mdb-tabs>
-                            <mdb-tab>
-                                <ng-template mdbTabTitle>
-                                    FABRIC
-                                </ng-template>
-                                FABRIC FABRIC
-                            </mdb-tab>
+                            <br>
+                            <br>
+                            <!-- Nested Tabs   -->
+                            <mdb-tabs>
+                                <mdb-tab>
+                                    <ng-template mdbTabTitle>
+                                        FABRIC
+                                    </ng-template>
+                                    <div class="matTabDiv scroll  ">
+                                        <mat-card style="padding: 15px;">
+                                            <div class="mat-elevation-z8" style=" padding: 10px;">
+                                                <table class=" " style=" " mat-table [dataSource]="dataFabric" matSort>
+                                                    <!-- Progress Column -->
+                                                    <ng-container matColumnDef="ID">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>SL</th>
+                                                        <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+                                                    </ng-container>
+                    
+                                                    <!-- inventoryCode Column -->
+                                                    <ng-container matColumnDef="inventoryCode">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fabric Code</th>
+                                                        <td mat-cell *matCellDef="let row">
+                                                            {{row?.inventoryCode}}
+                                                        </td>
+                                                    </ng-container>
+                    
+                                                    <!-- inventoryCode Column -->
+                                                    <ng-container matColumnDef="inventoryName">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Fabric Name</th>
+                                                        <td mat-cell *matCellDef="let row">
+                                                            {{row?.inventoryName}}
+                                                        </td>
+                                                    </ng-container>
+                    
+                                                    <!-- inventoryCode Column -->
+                                                    <ng-container matColumnDef="setName">
+                                                        <th mat-header-cell *matHeaderCellDef mat-sort-header>Unit</th>
+                                                        <td mat-cell *matCellDef="let row">
+                                                            {{row?.setName}}
+                                                        </td>
+                                                    </ng-container>
+                    
+                    
+                                                    <tr mat-header-row *matHeaderRowDef="dataFabricColumns"></tr>
+                                                    <tr class="mat-row" mat-row *matRowDef="let row; columns: dataFabricColumns;"></tr>
+                    
+                                                    <!-- Row shown when there is no matching data. -->
+                                                </table>
+                    
+                                            </div>
+                                        </mat-card>
+                                    </div>
+                                </mdb-tab>
 
-                            <mdb-tab>
-                                <ng-template mdbTabTitle>
-                                    TRIMS
-                                </ng-template>
-                                TRIMS TRIMS
-                            </mdb-tab>
-
-
-                        </mdb-tabs>
-
-                      
+                                <mdb-tab>
+                                    <ng-template mdbTabTitle>
+                                        TRIMS
+                                    </ng-template>
+                                    <div class="matTabDiv scroll   " > 
+                                       
+                                             
+                                            <mat-card style="padding: 15px;">
+                                                <div class="mat-elevation-z8" style=" padding: 10px;">
+                                                    <table class=" " style=" " mat-table [dataSource]="dataTrims" matSort>
+                                                        <!-- Progress Column -->
+                                                        <ng-container matColumnDef="ID">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>SL</th>
+                                                            <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+                                                        </ng-container>
                         
+                                                        <!-- inventoryCode Column -->
+                                                        <ng-container matColumnDef="inventoryCode">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Trim Code</th>
+                                                            <td mat-cell *matCellDef="let row">
+                                                                {{row?.inventoryCode}}
+                                                            </td>
+                                                        </ng-container>
+                        
+                                                        <!-- inventoryCode Column -->
+                                                        <ng-container matColumnDef="inventoryName">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Trim Name</th>
+                                                            <td mat-cell *matCellDef="let row">
+                                                                {{row?.inventoryName}}
+                                                            </td>
+                                                        </ng-container>
+                        
+                                                        <!-- inventoryCode Column -->
+                                                        <ng-container matColumnDef="variant1">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Variant1</th>
+                                                            <td mat-cell *matCellDef="let row">
+                                                                {{row?.variant1}}
+                                                            </td>
+                                                        </ng-container>
+                        
+                                                        <!-- inventoryCode Column -->
+                                                        <ng-container matColumnDef="processCode">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Process Code</th>
+                                                            <td mat-cell *matCellDef="let row">
+                                                                {{row?.processCode}}
+                                                            </td>
+                                                        </ng-container>
+                        
+                                                        <!-- inventoryCode Column -->
+                                                        <ng-container matColumnDef="processName">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Process Name</th>
+                                                            <td mat-cell *matCellDef="let row">
+                                                                {{row?.processName}}
+                                                            </td>
+                                                        </ng-container>
+                        
+                                                        <!-- inventoryCode Column -->
+                                                        <ng-container matColumnDef="setName">
+                                                            <th mat-header-cell *matHeaderCellDef mat-sort-header>Unit</th>
+                                                            <td mat-cell *matCellDef="let row">
+                                                                {{row?.setName}}
+                                                            </td>
+                                                        </ng-container>
+                        
+                        
+                                                        <tr mat-header-row *matHeaderRowDef="dataTrimsColumns"></tr>
+                                                        <tr class="mat-row" mat-row *matRowDef="let row; columns: dataTrimsColumns;"></tr>
+                        
+                                                        <!-- Row shown when there is no matching data. -->
+                                                    </table>
+                                                    <mat-paginator [pageSizeOptions]="[10, 25, 35, 100]" aria-label="Select page of users"></mat-paginator>
+                                                </div>
+                                            </mat-card>
+                                        </div>
+                                   
+                                </mdb-tab>
+
+
+                            </mdb-tabs>
+                        </div>
+
+
+
+
                     </mdb-tab>
                     <!-- End BoM  -->
 
@@ -581,6 +700,7 @@
                                 <thead>
                                     <tr>
                                         <th class="tableTh" scope="col">Costing No</th>
+                                        <th class="tableTh" scope="col">Customer</th>
                                         <th class="tableTh" scope="col">Forex Rates</th>
                                         <th class="tableTh" scope="col">Cost</th>
                                         <th class="tableTh" scope="col">Calculated Price</th>
@@ -592,6 +712,7 @@
                                 <tbody>
                                     <tr>
                                         <td scope="col">{{getStyleCostObj?.maInitialCostDto?.initialCostCode}}</td>
+                                        <td scope="col">{{getStyleCostObj?.maInitialCostDto?.accessCode}}</td>
                                         <td scope="col">{{getStyleCostObj?.maInitialCostDto?.forexRate}}</td>
                                         <td scope="col">{{getStyleCostObj?.maInitialCostDto?.costAmount1}}</td>
                                         <td scope="col">{{getStyleCostObj?.maInitialCostDto?.ud_CalculatedFob}}</td>

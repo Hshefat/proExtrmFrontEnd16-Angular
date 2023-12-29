@@ -143,3 +143,22 @@
 //     border-color: var(--bs-nav-tabs-link-active-border-color);
 //     width: 150px !important;
 // }
+
+.matTabDiv {
+  height: 700px; 
+  background-color: azure;
+}
+div.scroll {
+  margin: 2px, 2px;
+  padding: 2px;
+  height: 650px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align: justify;
+}
+ 
+ 
+
+.zui-table-highlight tbody tr:hover {
+  background-color: #CCE7E7 !important;
+}

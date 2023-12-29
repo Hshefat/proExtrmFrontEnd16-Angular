@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 import { TosterSercicesService } from 'src/app/layout-services/toster-sercices.service';
 import { ItemAttatchment } from 'src/app/model/item-attatchment.model';
 import { GET_IMAGE_FILE_BY_INVENTORY_ID } from 'src/app/constants/base-constant.constant';
+import { ItemBom } from 'src/app/model/item-bom.model';
 @Component({
   selector: 'app-style-edit-view',
   templateUrl: './style-edit-view.component.html',
@@ -63,7 +64,32 @@ export class StyleEditViewComponent implements OnInit {
     , 'unitPrice'
 
   ];
+
+  dataFabricColumns: string[] = [
+    'ID'
+    ,'inventoryCode'
+    , 'inventoryName'
+    , 'setName' 
+
+  ];
+
+  dataTrimsColumns: string[] = [
+    'ID'
+    ,'inventoryCode'
+    , 'inventoryName'
+    , 'variant1'
+    , 'processCode'
+    , 'processName'
+    , 'setName' 
+
+  ];
+
+  
   dataSource!: MatTableDataSource<IStyle>;
+  
+  dataFabric!: MatTableDataSource<ItemBom>;
+  dataTrims!: MatTableDataSource<ItemBom>;
+
   styleList: IStyle[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -76,6 +102,10 @@ export class StyleEditViewComponent implements OnInit {
   InventoryName: any;
   getStyleCostObj: any;
   styleRecId: any;
+  getFabricList: any;
+  getTrimsList: any;
+
+
   constructor(private route: ActivatedRoute,
     private services: StyleService,
     private formBuilder: FormBuilder,
@@ -303,6 +333,8 @@ export class StyleEditViewComponent implements OnInit {
         }
         this.setValueFromStyleViewCard(res);
         this.GetStyleCostById(res?.recId);
+        this.GetStyle_BOM_Fabric_ById(res?.recId);
+        this.GetStyle_BOM_TrimsById(res?.recId);
       },
         (error: any) => {
 
@@ -350,8 +382,10 @@ export class StyleEditViewComponent implements OnInit {
       this.recIdForImage = res.recId;
       this.styleRecId = res.recId;
       this.setValueFromStyleViewCard(res);
-      this.GetStyleCostById(res.recId);
-      
+      this.GetStyleCostById(res?.recId);
+      this.GetStyle_BOM_Fabric_ById(res?.recId);
+      this.GetStyle_BOM_TrimsById(res?.recId);
+    
     })
     this.isloaded = false;
   };
@@ -371,10 +405,35 @@ export class StyleEditViewComponent implements OnInit {
   };
 
 
+  GetStyle_BOM_Fabric_ById(recId:any) {
+
+    this.services.GetStyle_BOM_Fabric_ById(recId)?.subscribe(res => {
+      this.getFabricList = res;
+      console.log('getFabricList', this.getFabricList)
+      this.dataFabric = new MatTableDataSource(this.getFabricList);
+      this.dataFabric.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+    this.isloaded = false;
+  };
+
+  GetStyle_BOM_TrimsById(recId:any) {
+    
+    this.services.GetStyle_BOM_TrimsById(recId)?.subscribe(res => {
+      this.getTrimsList = res;
+      console.log('getTrimsList', this.getTrimsList)
+      this.dataTrims = new MatTableDataSource(this.getTrimsList);
+      this.dataTrims.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    })
+    this.isloaded = false;
+  };
+
+
   GetStyleCostById(styleRecId:any) {
     this.services.GetStyleCostById(styleRecId)?.subscribe(res => {
       this.getStyleCostObj = res;
-      console.log('getStyleCostObj', this.getStyleCostObj)
+      console.log('getStyleCostObj', res)
     })
     this.isloaded = false;
   };

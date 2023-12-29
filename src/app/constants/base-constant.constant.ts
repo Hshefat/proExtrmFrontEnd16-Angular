@@ -10,3 +10,5 @@ export const GetMercenEmployeesByInventoryCode = '/GetMercenEmployeesByInventory
 export const GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE = '/GetMercenEmployeesByInventoryCode';
 export const GET_IMAGE_FILE_BY_INVENTORY_ID = '/GetImageFileByInventoryId';
 export const GET_ORDER_INGO_BY_INVENTORY_CODE = '/GetOrderInfoByInventoryCode';
+export const GET_STYLE_BOM_FABRIC_BY_ID = '/GetStyle_BOM_Fabric_ById';
+export const GET_STYLE_BOM_TRIMS_BY_ID = '/GetStyle_BOM_TrimsById';
