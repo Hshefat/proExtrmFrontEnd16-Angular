@@ -29,6 +29,20 @@ body { margin: 0; font-family:   "Times New Roman", Times, serif; font-size: 10p
   bottom: 0;
 }
 
+.animatSpinner{ 
+  width: 110px !important;
+  height: 110px !important;
+  position: fixed;
+  display: flex;
+  top: 400px !important;
+  left: 900px !important;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+   
+  z-index: 2;
+}
+
 
 
 

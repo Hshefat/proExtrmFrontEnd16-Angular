@@ -25,7 +25,7 @@ export class StyleEditViewComponent implements OnInit {
   searchInventoryCode: any;
   itemId: any;
   conceptUuid: any;
-  isloaded = true;
+  isloaded = false;
   styleObj: any;
   buyerContactList: any;
   frmGroup!: FormGroup;
@@ -130,7 +130,7 @@ export class StyleEditViewComponent implements OnInit {
 
 
     // this.getData();
-    // this.snMethod();
+    //  this.snMethod();
 
   }
   getInventoryCode() {
@@ -358,10 +358,11 @@ export class StyleEditViewComponent implements OnInit {
     this.isloaded = true;
     setTimeout(() => {
       this.isloaded = false;
-    }, 2000);
+    }, 6000);
   }
 
   getData() {
+    this.isloaded = true;
     this.services.getData().subscribe(res => {
       this.styleList = res;
       this.InventoryName = res.InventoryName;
@@ -376,6 +377,7 @@ export class StyleEditViewComponent implements OnInit {
 
 
   getByIdEditView() {
+    this.isloaded = true;
     this.services.getByIdEditView(this.objId)?.subscribe(res => {
       this.styleObj = res;
       console.log('ff',res)
@@ -394,6 +396,7 @@ export class StyleEditViewComponent implements OnInit {
 
 
   GetOrderInfoByInventoryCode(recId:any) {
+    this.isloaded = true;
     this.services.GetOrderInfoByInventoryCode(recId)?.subscribe(res => {
       this.getOrderList = res;
       console.log('GetOrderInfoByInventoryCode', this.getOrderList)
@@ -406,31 +409,32 @@ export class StyleEditViewComponent implements OnInit {
 
 
   GetStyle_BOM_Fabric_ById(recId:any) {
-
+    this.isloaded = true;
     this.services.GetStyle_BOM_Fabric_ById(recId)?.subscribe(res => {
       this.getFabricList = res;
       console.log('getFabricList', this.getFabricList)
       this.dataFabric = new MatTableDataSource(this.getFabricList);
       this.dataFabric.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataFabric.sort = this.sort;
     })
     this.isloaded = false;
   };
 
   GetStyle_BOM_TrimsById(recId:any) {
-    
+    this.isloaded = true;
     this.services.GetStyle_BOM_TrimsById(recId)?.subscribe(res => {
       this.getTrimsList = res;
       console.log('getTrimsList', this.getTrimsList)
       this.dataTrims = new MatTableDataSource(this.getTrimsList);
       this.dataTrims.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
+      this.dataTrims.sort = this.sort;
     })
     this.isloaded = false;
   };
 
 
   GetStyleCostById(styleRecId:any) {
+    this.isloaded = true;
     this.services.GetStyleCostById(styleRecId)?.subscribe(res => {
       this.getStyleCostObj = res;
       console.log('getStyleCostObj', res)
