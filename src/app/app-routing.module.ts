@@ -8,6 +8,7 @@ import { DashboardBoardComponent } from './components/features-modules/dashboard
 import { StatisticsComponent } from './components/features-modules/statistics/statistics.component';
 import { StyleEditViewComponent } from './components/features-modules/style/style-edit-view/style-edit-view.component';
 import { SalesComponent } from './components/features-modules/sales/sales.component';
+import { OrderEditViewComponent } from './components/features-modules/order/order-edit-view/order-edit-view.component';
 
 const routes: Routes = [
   
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'style-view/:id', component: StyleEditViewComponent }, 
   { path: 'style-view', component: StyleEditViewComponent }, 
   { path: 'order-list', component: OrderListComponent },  
+  { path: 'order-view', component: OrderEditViewComponent },  
   { path: 'statistics', component: StatisticsComponent },  
   { path: '**', component: NotfoundComponent },
 ];

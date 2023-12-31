@@ -2,17 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
-  GET_STYLE_BY_ID,
-  GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE,
-  GET_IMAGE_FILE_BY_INVENTORY_ID,
-  GET_ORDER_INGO_BY_INVENTORY_CODE,
-  GET_ALL_STYLE_LIST_COUNT,
-  GET_ALL_ORDER_LIST_COUNT,
-  GET_STYLE_COST_BY_ID,
-  GET_STYLE_BOM_TRIMS_BY_ID,
-  GET_STYLE_BOM_FABRIC_BY_ID
- } from '../constants/base-constant.constant';
+import { GET_ALL_ORDER_LIST_COUNT, GET_ALL_STYLE_LIST, GET_ALL_STYLE_LIST_COUNT, GET_MERCEN_EMPLOYEES_BY_INVENTORY_CODE, GET_ORDER_INGO_BY_INVENTORY_CODE, GET_STYLE_BOM_FABRIC_BY_ID, GET_STYLE_BOM_TRIMS_BY_ID, GET_STYLE_BY_ID, GET_STYLE_COST_BY_ID } from '../constants/base-constant.constant';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +10,13 @@ import { GET_ITEMS_WITH_WORK_ORDERS, ImItem,
 export class StyleService {
       // BASE_API_URL: string = environment.baseApiEndPoint;
 
-  private ApiUrl = 'https://localhost:7164/ImItem';
+  // private ApiUrl = 'https://localhost:7164/ImItem';
+  private ApiUrl = 'https://localhost:7164/Style';
   constructor(private http: HttpClient) { }
 
 
   getData(): Observable<any> {
-    return this.http.get<any>(this.ApiUrl + GET_ITEMS_WITH_WORK_ORDERS ).pipe(map((res: any) => {
+    return this.http.get<any>(this.ApiUrl + GET_ALL_STYLE_LIST ).pipe(map((res: any) => {
       return res;
     }));
   }

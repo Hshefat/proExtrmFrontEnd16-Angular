@@ -9,7 +9,8 @@ import {
   faBox,
   faMoneyBill,
   faChartBar,
-  faTshirt
+  faTshirt,
+  faCaravan,
   
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -32,6 +33,7 @@ export class SideBarComponent implements OnInit {
   faCircle = faLifeRing; 
   faClipboard = faClipboard;
   faTshirt=faTshirt;
+  faCaravan=faCaravan;
   constructor() { }
 
   ngOnInit(): void {
