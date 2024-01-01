@@ -18,12 +18,26 @@
       
       <!-- Data table  -->
       <div class="w-100 p-3 mt7">
-        <mat-form-field>
-          <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
-        </mat-form-field>
+   
+        <table class="headerTableTitle">
+          <tr  >
+            <td style="width: 30%;   ">
+              <mat-form-field class="MatFormFieldCs">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+              </mat-form-field>
+            </td>
+            <td style="width: 70%; text-align: justify;">
+              <p class="HeaderText">Style List</p>
+            </td>
+          </tr>
+        </table>
 
-        <div class="mat-elevation-z8 scroll" style="text-align: center; width: 100%; padding: 10px; ">
-          <table mat-table [dataSource]="dataSource" matSort>
+
+        <br>
+
+
+        <div class="mat-elevation-z8 scroll TableDiv" style="  ">
+          <table mat-table [dataSource]="dataSource" matSort class="TableS">
 
 
 
@@ -118,7 +132,7 @@
 
 
 
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true;"  class="mat-header"></tr>
             <tr class="mat-row" mat-row *matRowDef="let row; columns: displayedColumns;"  
             
             ></tr>
