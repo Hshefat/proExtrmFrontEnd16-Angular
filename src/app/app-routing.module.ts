@@ -18,8 +18,11 @@ const routes: Routes = [
   { path: 'sales', component: SalesComponent }, 
   { path: 'style-view/:id', component: StyleEditViewComponent }, 
   { path: 'style-view', component: StyleEditViewComponent }, 
+
   { path: 'order-list', component: OrderListComponent },  
   { path: 'order-view', component: OrderEditViewComponent },  
+  { path: 'order-view/:id', component: OrderEditViewComponent }, 
+
   { path: 'statistics', component: StatisticsComponent },  
   { path: '**', component: NotfoundComponent },
 ];

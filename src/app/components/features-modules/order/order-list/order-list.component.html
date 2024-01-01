@@ -1,13 +1,168 @@
 <div class="container-fluid">
-    <div class="header">
-      <app-header></app-header>
+  <div class="header">
+    <app-header></app-header>
+  </div>
+  <div class="main-container">
+    <div class="side-nav">
+      <app-side-bar></app-side-bar>
     </div>
-    <div class="main-container">
-      <div class="side-nav">
-        <app-side-bar></app-side-bar>
+    <div class="main  w-100 p-3">
+      <!-- for spinner  -->
+      <div class="animatSpinner" *ngIf="isloaded">
+        <img style="  " src="assets/Image/sewing.gif" alt="Image 1">
       </div>
-      <div class="main">
-       <h1>Demo</h1>
+      <!--   <div class="spinner-border" *ngIf="isloaded" style="width: 3rem; height: 3rem; text-align: center;" role="status">
+          <span class="sr-only">Loading...</span>
+        </div> -->
+      <!-- for spinner END  -->
+
+      <!-- Data table  -->
+      <div class="w-100 p-3 mt7 ">
+
+        <table class="headerTableTitle">
+          <tr  >
+            <td style="width: 30%;   ">
+              <mat-form-field class="MatFormFieldCs">
+                <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
+              </mat-form-field>
+            </td>
+            <td style="width: 70%; text-align: justify;">
+              <p class="HeaderText">Order List</p>
+            </td>
+          </tr>
+        </table>
+
+        <br>
+
+        <div class="mat-elevation-z8 scroll TableDiv">
+          <table mat-table [dataSource]="OrderListSource" matSort class="TableS">
+
+
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="recId">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>SL</th>
+              <td mat-cell *matCellDef="let i = index">{{ i + 1 }}</td>
+            </ng-container>
+
+
+
+            <!-- inventoryCode Column -->
+            <ng-container matColumnDef="workOrderNo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Order No</th>
+              <td mat-cell *matCellDef="let row" (click)="onRowClick(row)"
+                [style.color]="row.clicked ? 'red' : 'black'">
+                <span>
+                  {{row.workOrderNo}}
+                </span>
+              </td>
+            </ng-container>
+
+            <!-- inventoryName Column -->
+            <ng-container matColumnDef="explanation">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Explanation </th>
+              <td mat-cell *matCellDef="let row"> {{row.explanation }} </td>
+            </ng-container>
+
+            <!-- inventoryName Column -->
+            <ng-container matColumnDef="workOrderDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Work Order Date </th>
+              <td mat-cell *matCellDef="let row"> {{row.workOrderDate | date: 'd-MMM-yyyy'}} </td>
+            </ng-container>
+
+
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="workOrderTime">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Work Order Time</th>
+              <td mat-cell *matCellDef="let row"> {{row?.workOrderTime | date: 'd-MMM-yyyy'}} </td>
+            </ng-container>
+
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="planDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> PlanDate</th>
+              <td mat-cell *matCellDef="let row"> {{row?.planDate | date: 'd-MMM-yyyy'}} </td>
+            </ng-container>
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="customerOrderNo">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Order No</th>
+              <td mat-cell *matCellDef="let row"> {{row?.customerOrderNo}} </td>
+            </ng-container>
+
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="workOrderGroupCode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Order Group</th>
+              <td mat-cell *matCellDef="let row"> {{row?.workOrderGroupCode}} </td>
+            </ng-container>
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="accessCode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer</th>
+              <td mat-cell *matCellDef="let row"> {{row?.accessCode}} </td>
+            </ng-container>
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="ud_StyleDepartment">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name</th>
+              <td mat-cell *matCellDef="let row"> {{row?.ud_StyleDepartment}} </td>
+            </ng-container>
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="ud_StyleCode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Style Code</th>
+              <td mat-cell *matCellDef="let row"> {{row?.ud_StyleCode}} </td>
+            </ng-container>
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="unitPrice">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Unit Price</th>
+              <td mat-cell *matCellDef="let row"> {{row?.unitPrice}} </td>
+            </ng-container>
+
+
+
+
+            <!-- seasonCode Column -->
+            <ng-container matColumnDef="quantity">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header>Total Quantity</th>
+              <td mat-cell *matCellDef="let row"> {{row?.quantity}} </td>
+            </ng-container>
+
+
+
+
+
+
+
+
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true" class="mat-header"></tr>
+            <tr class="mat-row" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+              <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+          </table>
+
+          <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+        </div>
       </div>
+      <!-- end data table  -->
+
+
+
+
+
+
+
+
+
     </div>
   </div>
+</div>

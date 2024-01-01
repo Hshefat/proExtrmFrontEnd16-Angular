@@ -1,0 +1,161 @@
+.main-container {
+    display: flex;
+  
+    .side-nav {
+      width: 200px;
+      min-width: 230px;
+      min-height: calc(100vh - 70px);
+      background-color: #113c60;
+      color: #fff;
+      box-shadow: 5px 5px 5px #939393;
+  
+      @media only screen and (max-width: 1300px) {
+        width: 100px;
+        min-width: 100px;
+      }
+    }
+  
+  }
+  
+  .main {
+    padding: 30px;
+    font-family: Arial; 
+    font-size: 10px;
+    width: 100%;
+    overflow-y: auto;
+  }
+  
+  .spinnerconent {
+    width: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    display: flex;
+    text-align: center;
+  }
+  
+  .spinnerclass {
+    display: flex;
+    position: fixed;
+    width: 100%;
+    left: 50%;
+    right: 0;
+    top: 50%;
+    bottom: 0;
+  }
+  
+  /* Reduce the width of mat-tab-label */
+  .mat-tab-body-wrapper {
+    flex-grow: 0;
+  }
+  
+  .tab-group mat-tab-body {
+    flex-grow: 0;
+  }
+  
+  .toast-custom {
+  
+    top: 80px;
+  
+    right: 0px;
+  
+  }
+  
+  .image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #333;
+    margin: 10px;
+    padding: 20px;
+  }
+  
+  .tblImage {
+    width: 2%;
+    height: 2%;
+    border: 2px solid #333;
+  }
+   .formLabel{
+    font-weight: bold; font-size: 15px;
+   
+   }
+  
+  .mdbFormControl {
+    margin-bottom: 10px;
+  }
+   
+  .mat-column-workOrderNo{
+    width: 130px;
+    min-width: 130px;
+    }
+  
+    .mat-row:hover {
+      background-color: #e7e69b;
+    }
+   
+    .tables {
+      width: 100% !important;
+      text-align: center;
+      padding: 5px;
+    }
+    
+    .mat-form-field {
+      font-size: 14px;
+      width: 20%;
+    }
+    
+    .mat-header-cell, .mat-cell {
+      width: 150px;
+    }
+    .mdc-data-table__cell, .mdc-data-table__header-cell {
+      padding: 0 0px 0 6px;
+    }
+    
+    .th-center{
+      text-align: center;
+    }
+    .th-left{
+      text-align: left;
+    }
+    .th-right{
+      text-align: right;
+    }
+  
+    .tableTh {
+      font-weight: bold !important;
+      font-size: 15px !important;
+      background-color: #e6e0e0;
+    }
+   
+  
+  //   .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  //     color: var(--bs-nav-tabs-link-active-color);
+  //     background-color: var(--bs-nav-tabs-link-active-bg);
+  //     border-color: var(--bs-nav-tabs-link-active-border-color);
+  //     width: 150px !important;
+  // }
+  
+  .matTabDiv {
+     
+  }
+  div.scroll {
+    margin: 2px, 2px;
+    padding: 2px;
+    height: 650px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: justify;
+  }
+   
+   
+  
+  
