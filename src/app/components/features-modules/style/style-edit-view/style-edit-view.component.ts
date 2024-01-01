@@ -13,6 +13,7 @@ import { TosterSercicesService } from 'src/app/layout-services/toster-sercices.s
 import { ItemAttatchment } from 'src/app/model/item-attatchment.model';
 import { GET_IMAGE_FILE_BY_INVENTORY_ID } from 'src/app/constants/base-constant.constant';
 import { ItemBom } from 'src/app/model/item-bom.model';
+import { IMaWorkOrder } from 'src/app/model/ma-work-order.model';
 @Component({
   selector: 'app-style-edit-view',
   templateUrl: './style-edit-view.component.html',
@@ -93,7 +94,7 @@ export class StyleEditViewComponent implements OnInit {
   styleList: IStyle[] = [];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-
+  previousClickedRow: IMaWorkOrder | null = null;
 
 
 
@@ -454,7 +455,24 @@ export class StyleEditViewComponent implements OnInit {
     }
   }
 
-
+ 
+  onRowClick(row: IMaWorkOrder): void {
+    if (this.previousClickedRow && this.previousClickedRow !== row) {
+      this.previousClickedRow.clicked = false;
+    }
+  
+    console.log('row', row);
+    let invenCode = row;
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/order-view', invenCode ])
+    );
+    console.log('row.inventorycode', invenCode);
+    window.open(url, '_blank');
+  
+    row.clicked = !row.clicked;
+    this.previousClickedRow = row.clicked ? row : null;
+  }
+  
 
 
 

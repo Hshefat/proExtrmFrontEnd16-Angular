@@ -85,7 +85,7 @@ export class OrderEditViewComponent implements OnInit {
   styleRecId: any;
   getFabricList: any;
   getTrimsList: any;
-
+  previousClickedRow: IMaWorkOrder | null = null;
 
 
 
@@ -125,7 +125,22 @@ export class OrderEditViewComponent implements OnInit {
   };
 
 
-
+  onRowClick(row: IMaWorkOrder): void {
+    if (this.previousClickedRow && this.previousClickedRow !== row) {
+      this.previousClickedRow.clicked = false;
+    }
+  
+    console.log('row', row);
+    let invenCode = row.workOrderNo;
+    const url = this.router.serializeUrl(
+      this.router.createUrlTree(['/order-view',invenCode])
+    );
+    console.log('row.inventorycode', invenCode);
+    window.open(url, '_blank');
+  
+    row.clicked = !row.clicked;
+    this.previousClickedRow = row.clicked ? row : null;
+  }
 
 
 

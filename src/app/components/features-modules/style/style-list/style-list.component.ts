@@ -78,6 +78,9 @@ export class StyleListComponent implements OnInit {
 owClicked(row: any) {
     this.router.navigate(['/style-view', this.inventoryCodeForSearch]);
   }
+
+
+  
   openNewTab(rowData: any) {
     console.log('row',rowData);
     const url = this.router.serializeUrl(

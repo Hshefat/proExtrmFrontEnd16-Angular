@@ -84,10 +84,12 @@ export class OrderListComponent  implements OnInit {
   owClicked(row: any) {
     this.router.navigate(['/order-view', this.inventoryCodeForSearch]);
   }
+
+
   openNewTab(rowData: any) {
     console.log('row',rowData);
     const url = this.router.serializeUrl(
-      this.router.createUrlTree(['/order-view', rowData.inventoryCode])
+      this.router.createUrlTree(['/order-view', rowData.workOrderNo])
     );
 
     window.open(url, '_blank');
