@@ -72,10 +72,14 @@ table {
 }
 
 
-.mat-column-inventoryCode {
+.mat-column-workOrderNo {
   width: 120px;
   min-width: 120px;
   cursor: pointer;
+}
+
+.mat-column-quantity {
+ text-align: center;
 }
 
 .mat-column-planDate {
@@ -105,6 +109,7 @@ div.scroll {
   background-color: rgb(112, 189, 189);
   margin-top: -15px !important;
   box-shadow: 10px 10px 5px lightblue;
+  text-align: center;
 
 }
 
@@ -114,7 +119,9 @@ div.scroll {
 }
 
 .MatFormFieldCs {
-  margin-bottom: -20px !important; width: 80%; margin-left:  20px !important;
+  margin-bottom: -20px !important; 
+  width: 80%; 
+  margin-left:  20px !important;
 }
 .HeaderText {
   font-size: 30px !important;

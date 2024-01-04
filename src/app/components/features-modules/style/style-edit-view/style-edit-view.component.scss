@@ -96,6 +96,7 @@
 .mat-column-workOrderNo{
   width: 130px;
   min-width: 130px;
+  cursor: pointer;
   }
 
   .mat-row:hover {
@@ -156,5 +157,10 @@ div.scroll {
   text-align: justify;
 }
  
- 
+.HeaderText {
+  font-size: 30px !important;
+  color: rgb(72, 197, 197);
+  font-weight: bold;
+  margin-left: 90px !important;
+}
 

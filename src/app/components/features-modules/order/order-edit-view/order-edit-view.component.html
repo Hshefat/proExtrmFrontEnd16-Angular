@@ -9,7 +9,236 @@
 
 
         <div class="main ">
-            ffffffffffffff
+
+            <div style=" text-align: center;">
+                <p class="HeaderText">Order View Card</p>
+            </div>
+            <br>
+            <!-- 2 card  -->
+            <div class="d-flex justify-content-center" style="width: 100%;  ">
+
+                <!-- Left Card  -->
+                <mat-card style="width: 30%; margin-right:  5px; box-shadow: 0 0 15px  15px lightblue;">
+                    <br>
+                    <br>
+                    <form class="form" [formGroup]="frmGroup">
+                        <div class=" p-3">
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" formControlName="workOrderNo"
+                                    class="form-control form-control-sm" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Order Serial</label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="accessCode" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Access Code
+                                </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="agreedDeliveryDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Agreed Delivery Date
+                                </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="capacity" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Capacity</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="countryName" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Country Name</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="forexId" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Forex Id</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="forexUnitPrice" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Forex Unit Price</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="handoverDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Handover Date</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    placeholder="d-MMM-yyyy" formControlName="planDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Plan Date</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="quantity" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Quantity</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="recipeQuantity" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Recipe Quantity</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="routeId" />
+                                <label mdbLabel class="form-label formLabel">
+                                    RouteId</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="workOrderDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Work Order Date</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="workOrderGroupCode" />
+                                <label mdbLabel class="form-label formLabel">
+                                    File Number</label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="workOrderTime" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Work Order Time</label>
+                            </mdb-form-control>
+                        </div>
+                    </form>
+                </mat-card>
+
+                <!-- Right Card  -->
+                <mat-card style="width: 30%; margin-left:  5px; box-shadow: 0 0 15px  15px lightblue; ;">
+                    <br>
+                    <br>
+                    <form class="form" [formGroup]="frmGroup">
+                        <div class=" p-3">
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="ctext" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Ctext</label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="currentAccountId" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Current Account Id</label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="customerOrderNo" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Customer Order No </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="cuttingApprovedDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Cutting Approved Date </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="deliveryDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Delivery Date </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="employeeId" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Customer Represent </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="explanation" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Explanation </label>
+                            </mdb-form-control>
+
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="factoryId" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Factory Name </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="date" class="form-control form-control-sm"
+                                    formControlName="shipmentDate" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Shipment Date </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="typeOfShipment" />
+                                <label mdbLabel class="form-label formLabel">
+                                    TypeOf Shipment </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="ud_Status" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Status </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="ud_StyleCode" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Style Code </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="ud_StyleDepartment" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Style Department </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="unitPrice" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Unit Price </label>
+                            </mdb-form-control>
+                            <mdb-form-control class="mdbFormControl ">
+                                <input mdbInput type="text" class="form-control form-control-sm"
+                                    formControlName="workOrderType" />
+                                <label mdbLabel class="form-label formLabel">
+                                    Work Order Type </label>
+                            </mdb-form-control>
+                        </div>
+                    </form>
+                </mat-card>
+
+
+            </div>
+            <br>
+            <br>
+            <br>
+
+            <!-- -------------Footer End Main DIv------------------  -->
+            <div>
+                <app-footer></app-footer>
+            </div>
         </div>
     </div>
 </div>

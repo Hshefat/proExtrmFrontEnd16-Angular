@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { 
   faBoxes,
   faMoneyBill,
+  faCommentDollar,
+  faFunnelDollar,
+  faSearchDollar,
+  faDollarSign,
+  faCommentsDollar,
+  faFileInvoiceDollar,
+  
   faTshirt,
   faShoppingCart
 } from '@fortawesome/free-solid-svg-icons';
@@ -20,6 +27,14 @@ export class TopWidgetsComponent implements OnInit {
   faMoneyBill = faMoneyBill;
   faTshirt=faTshirt;
   faShoppingCart=faShoppingCart;
+  
+  faCommentDollar=faCommentDollar;
+  faFunnelDollar=faFunnelDollar;
+  faSearchDollar=faSearchDollar;
+  faDollarSign=faDollarSign;
+  faCommentsDollar=faCommentsDollar;
+  faFileInvoiceDollar=faFileInvoiceDollar;
+
 
   isloaded = true;
 
