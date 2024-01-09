@@ -25,9 +25,32 @@
               <mat-form-field class="MatFormFieldCs">
                 <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
               </mat-form-field>
+
+              <div>
+                <form class="form" [formGroup]="dateRangeForm" (ngSubmit)="applyDateRangeFilter()">
+                  <label for="startDate">Start Date:</label>
+                  <input type="date" formControlName="startDate" id="startDate">
+
+                  <label for="endDate">End Date:</label>
+                  <input type="date" formControlName="endDate" id="endDate">
+
+                  <button type="submit">Apply Filter</button>
+                </form>
+
+
+              </div>
+
+
             </td>
-            <td style="width: 70%; text-align: justify;">
+
+
+
+
+
+            <td style="width: 100%; " class="d-flex justify-content-between">
               <p class="HeaderText">Style List</p>
+              <p style=" color: black; margin-bottom: -10px !important; font-size: 20px !important;">
+                Date: {{ currentDate | date: 'dd-MMM-YYYY' }} - {{ time | date: 'hh:mm:ss a' }} </p>
             </td>
           </tr>
         </table>

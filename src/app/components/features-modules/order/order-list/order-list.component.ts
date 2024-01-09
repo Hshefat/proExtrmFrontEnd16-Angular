@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Subscription, map, share, timer } from 'rxjs';
 import { IMaWorkOrder  } from 'src/app/model/ma-work-order.model';
 import { IStyle } from 'src/app/model/style.model';
 import { OrderService } from 'src/app/services/order.service';
@@ -13,9 +14,12 @@ import { OrderService } from 'src/app/services/order.service';
   styleUrls: ['./order-list.component.scss']
 })
 export class OrderListComponent  implements OnInit {
-
+  currentDate: Date = new Date();
   isloaded = false;
-
+  time = new Date();
+  rxTime = new Date();
+  intervalId : any;
+  subscription: any = Subscription;
 
 
 
@@ -55,9 +59,34 @@ export class OrderListComponent  implements OnInit {
   ngOnInit(): void {
 
     this.getOrderListData();
+    this.GetLiveClock();
   }
 
 
+  GetLiveClock(){
+      // Using Basic Interval
+      this.intervalId = setInterval(() => {
+        this.time = new Date();
+      }, 1000);
+  
+      // Using RxJS Timer
+      this.subscription = timer(0, 1000)
+        .pipe(
+          map(() => new Date()),
+          share()
+        )
+        .subscribe(time => {
+          this.rxTime = time;
+        });
+    }
+  
+    ngOnDestroy() {
+      clearInterval(this.intervalId);
+      if (this.subscription) {
+        this.subscription.unsubscribe();
+      }
+
+  }
   getOrderListData() {
     this.isloaded = true;
     this.services.getOrderListData().subscribe(res => {

@@ -26,8 +26,10 @@
                 <input matInput (keyup)="applyFilter($event)" placeholder="Search" #input>
               </mat-form-field>
             </td>
-            <td style="width: 70%; text-align: justify;">
+            <td style="width: 100%;  " class="d-flex justify-content-between">
               <p class="HeaderText">Order List</p>
+              <p style=" color: black; margin-bottom: -10px !important; font-size: 20px !important;">
+                Date: {{ currentDate | date: 'dd-MMM-YYYY' }} - {{ time | date: 'hh:mm:ss a' }} </p>
             </td>
           </tr>
         </table>
