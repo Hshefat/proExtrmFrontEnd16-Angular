@@ -7,7 +7,7 @@ import { IStyle } from 'src/app/model/style.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Subscription, timer, map, share } from 'rxjs';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 
 @Component({
@@ -37,6 +37,7 @@ export class StyleListComponent implements OnInit {
     , 'explanation'
     , 'categoryName'
     , 'quantity'
+    , 'insertedAt'
   ];
   dataSource!: MatTableDataSource<IStyle>;
 
@@ -46,17 +47,18 @@ export class StyleListComponent implements OnInit {
   inventoryCodeForSearch: any;
 
   previousClickedRow: IStyle | null = null;
-  totalStyleListCount: any; 
+  totalStyleListCount: any;
+  itemDate: any;
 
   constructor(private services: StyleService, private formBuilder: FormBuilder,
-    private router: Router, 
+    private router: Router,
   ) {
 
   }
 
   ngOnInit(): void {
 
-    this.formInitForDateFilter(); 
+    this.formInitForDateFilter();
     this.getData();
     this.GetLiveClock();
   }
@@ -67,7 +69,7 @@ export class StyleListComponent implements OnInit {
     }, 1000);
   }
 
- 
+
 
   getData() {
     this.isloaded = true;
@@ -121,36 +123,47 @@ export class StyleListComponent implements OnInit {
     this.previousClickedRow = row.clicked ? row : null;
   }
 
-  formInitForDateFilter(){
-     this.dateRangeForm = this.formBuilder.group({
-      startDate: [''],  
-      endDate: ['']
-   });
-    
-
-   } 
- 
-  
-  
-  
-  
-
- 
-   
-  applyDateRangeFilter(): void {
-    const startDate = new Date(this.dateRangeForm.get('startDate')?.value);
-    const endDate = new Date(this.dateRangeForm.get('endDate')?.value);
-
-    const filteredData = this.styleList.filter(item => {
-      const itemDate = new Date(item.createdAt);
-      return itemDate >= startDate && itemDate <= endDate;
+  formInitForDateFilter() {
+    this.dateRangeForm = this.formBuilder.group({
+      startDate: new FormControl(),
+      endDate: new FormControl(),
+      insertedAt: new FormControl(),
     });
-
-    console.log('Filtered Data:', filteredData);
-    // Use filteredData as per your requirement (e.g., display in the UI)
   }
 
- 
+
+  applyFilterSSSS() {
+    const startDate: Date | null = this.dateRangeForm.get('startDate')?.value;
+    const endDate: Date | null = this.dateRangeForm.get('endDate')?.value;
+    let filteredData = [];
+
+    if (startDate === null || endDate === null) {
+      filteredData = this.styleList;
+    } else {
+      filteredData = this.styleList.filter(item => {
+        const itemDate = new Date(item.insertedAt);
+        return itemDate >= startDate && itemDate <= endDate;
+      });
+    }
+    this.dataSource.data = filteredData;
+    console.log('filteredData:', filteredData);
+  }
+
+  applyFilterSSSSClean() {
+    this.dateRangeForm.get('startDate')?.reset(null);
+    this.dateRangeForm.get('endDate')?.reset(null);
+    this.applyFilterSSSS();
+  }
+
+
+
+
+
+
+
+  
+
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

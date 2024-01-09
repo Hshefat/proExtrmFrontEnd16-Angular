@@ -2,7 +2,7 @@ import { IWorkOrder } from "./work-order.model";
 
 export interface IStyle extends IWorkOrder {
     created(created: any, arg1: string): unknown;
-    createdAt: any;
+    insertedAt: any; 
     clicked?: boolean;
     woOrderDto: IWorkOrder[]; 
     recid: any;

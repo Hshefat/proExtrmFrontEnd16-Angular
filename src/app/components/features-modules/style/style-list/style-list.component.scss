@@ -120,7 +120,34 @@ div.scroll {
 }
 
 .MatFormFieldCs {
-  margin-bottom: -20px !important; width: 80%; margin-left:  20px !important;
+  margin-bottom: -20px !important; 
+  width: 80%; 
+  margin-left:  20px !important;
+}
+
+.MatFormFieldDateFilterDateField {
+  width: 170px !important; 
+  margin-left:  20px !important;
+  margin-right: 20px !important;
+}
+
+.MatFormFieldDateFilterDivRow {
+  background-color: rgb(198, 228, 218); 
+  margin-left: 21px !important;  
+  height: 60px !important;
+  margin-top: 20px !important;
+  padding-top: 22px !important;
+ 
+}
+.MatFormFieldDateFilterDivRowIcon {
+  background-color: rgb(220, 233, 229); 
+  margin-left: 5px !important;  
+  height: 50px !important;
+  width: 50px !important;
+  box-shadow: #113c60; 
+  margin-top: -25px !important;
+  cursor: pointer;
+  box-shadow: 5px 5px 5px #939393;
 }
 .HeaderText {
   font-size: 30px !important;
@@ -163,10 +190,7 @@ div.scroll {
 
 }
 
-
-
-
-
+ 
 
 
 

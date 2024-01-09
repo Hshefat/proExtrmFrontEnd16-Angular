@@ -23,7 +23,7 @@ import { StatisticsComponent } from './components/features-modules/statistics/st
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {HttpClientModule} from '@angular/common/http';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { MatTableModule} from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
@@ -55,6 +55,7 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { ToastrModule } from 'ngx-toastr';
 import { SalesComponent } from './components/features-modules/sales/sales.component';
+import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,6 +121,11 @@ import { SalesComponent } from './components/features-modules/sales/sales.compon
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+
+
+
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-top-right',
