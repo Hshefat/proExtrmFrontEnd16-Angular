@@ -19,7 +19,7 @@
       <!-- Data table  -->
       <div class="w-100 p-3 mt7">
 
-        <table class="headerTableTitle">
+        <table class="headerTableTitle" style="">
           <tr>
             <td style="width: 30%;   ">
               <mat-form-field class="MatFormFieldCs">
@@ -47,8 +47,7 @@
 
         <div>
           <form [formGroup]="dateRangeForm">
-            <div style="" 
-            class="d-flex justify-content-start align-items-center MatFormFieldDateFilterDivRow">
+            <div style=""  class="d-flex justify-content-start align-items-center MatFormFieldDateFilterDivRow">
               <div  class="p-2">
                 <mat-form-field class="MatFormFieldDateFilterDateField">
                   <mat-label>Start Date</mat-label>
@@ -73,7 +72,7 @@
 
               <br>
               <div  class="  " (click)="applyFilterSSSSClean()">
-                <img class="MatFormFieldDateFilterDivRowIcon border border-info" src="assets/Image/clean.gif" alt="Image 3"
+                <img class="MatFormFieldDateFilterDivRowIcon border border-info" src="assets/Image/refresh.gif" alt="Image 3"
                   >
 
               </div>

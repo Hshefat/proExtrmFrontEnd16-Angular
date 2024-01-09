@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -36,6 +37,7 @@ export class OrderListComponent  implements OnInit {
     , 'ud_StyleDepartment'  
     , 'ud_StyleCode'  
     , 'quantity'
+    , 'insertedAt'
 
   ];
   OrderListSource!: MatTableDataSource<IMaWorkOrder>;
@@ -45,12 +47,14 @@ export class OrderListComponent  implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   inventoryCodeForSearch: any;
 
-  
+  dateRangeForm !: FormGroup;
   totalOrderList: any;
   previousClickedRow: IMaWorkOrder | null = null;
+  
+ 
 
 
-  constructor(private services: OrderService,
+  constructor(private services: OrderService, private formBuilder: FormBuilder,
     private router: Router
   ) {
 
@@ -58,6 +62,7 @@ export class OrderListComponent  implements OnInit {
 
   ngOnInit(): void {
 
+    this.formInitForDateFilter();
     this.getOrderListData();
     this.GetLiveClock();
   }
@@ -144,7 +149,38 @@ export class OrderListComponent  implements OnInit {
   
 
   
-   
+  formInitForDateFilter() {
+    this.dateRangeForm = this.formBuilder.group({
+      startDate: new FormControl(),
+      endDate: new FormControl(),
+      insertedAt: new FormControl(),
+    });
+  }
+
+
+  applyFilterSSSS() {
+    const startDate: Date | null = this.dateRangeForm.get('startDate')?.value;
+    const endDate: Date | null = this.dateRangeForm.get('endDate')?.value;
+    let filteredData = [];
+
+    if (startDate === null || endDate === null) {
+      filteredData = this.OrderList;
+    } else {
+      filteredData = this.OrderList.filter(item => {
+        const itemDate = new Date(item.insertedAt);
+        return itemDate >= startDate && itemDate <= endDate;
+      });
+    }
+    this.OrderListSource.data = filteredData;
+    console.log('filteredData:', filteredData);
+  }
+
+  applyFilterSSSSClean() {
+    this.dateRangeForm.get('startDate')?.reset(null);
+    this.dateRangeForm.get('endDate')?.reset(null);
+    this.applyFilterSSSS();
+  }
+  
 
     
 
