@@ -8,7 +8,8 @@ import { GET_ALL_ORDER_LIST, GET_ORDER_BY_ID } from '../constants/base-constant.
 })
 export class OrderService {
 
-  private ApiUrl = 'https://localhost:7164/Order';
+  // private ApiUrl = 'https://localhost:44379/Order';
+  private ApiUrl = 'http://localhost:8000/Order';
   constructor(private http: HttpClient) { }
 
 

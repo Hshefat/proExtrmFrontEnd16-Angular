@@ -11,7 +11,10 @@ export class StyleService {
       // BASE_API_URL: string = environment.baseApiEndPoint;
 
   // private ApiUrl = 'https://localhost:7164/ImItem';
-  private ApiUrl = 'https://localhost:7164/Style';
+  private ApiUrl = 'http://localhost:8000/Style';
+  // private ApiUrl = 'http://extrm.somee.com/Style';
+  // private ApiUrl = 'https://localhost:44379/Style';
+  
   constructor(private http: HttpClient) { }
 
 
