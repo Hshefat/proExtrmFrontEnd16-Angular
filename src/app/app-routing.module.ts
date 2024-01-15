@@ -12,7 +12,7 @@ import { OrderEditViewComponent } from './components/features-modules/order/orde
 
 const routes: Routes = [
   
-  { path: '/', component: DashboardBoardComponent },
+  { path: '', component: DashboardBoardComponent },
   { path: 'home', component: HomeComponent },
   { path: 'style-list', component: StyleListComponent }, 
   { path: 'sales', component: SalesComponent }, 
